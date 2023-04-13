@@ -6,8 +6,8 @@ import java.util.List;
 public class Slip {
     private List<Product> productList = new ArrayList<>();
 
-    public void addProductList(int productId, Enum type, String desc, String quantityMes, int quantity){
-        productList.add(new Product(productId, type,  desc,  quantityMes,  quantity));
+    public void addProductList(){
+        productList.add(new Product());
     }
 
     public List<Product> getProductList() {
