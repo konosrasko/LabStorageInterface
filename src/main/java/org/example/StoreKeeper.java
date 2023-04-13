@@ -9,6 +9,7 @@ public class StoreKeeper {
     private List<Slip> slipList = new ArrayList<>();
     private List<Product> productList1 = new ArrayList<>();
     private List<Product> productList2 = new ArrayList<>();
+
     public StoreKeeper(){
 
     }
@@ -18,14 +19,16 @@ public class StoreKeeper {
         this.keeperName = keeperName;
     }
 
-
-    public void setSlipList(int slipId) {
-        slipList.add(new Slip(slipId));
+    public void setSlipList(Slip productList){
+        slipList.add(productList);
     }
 
-//    public void setProductList1(int slipId){
-//        productList1.add();
+//    public void setProductList1(){
+//        for (Slip slipList:slipList){
+//            if (slipList.)
+//        }
 //    }
+
 
     public String getKeeperName() {
         return keeperName;
