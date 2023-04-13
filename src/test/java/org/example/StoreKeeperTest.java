@@ -9,7 +9,7 @@ class StoreKeeperTest {
     void storekeeperTest(){
         Slip slip1 = new Slip();
         StoreKeeper keeper = new StoreKeeper(1,"kostas");
-        slip1.addProductList(1,type.LIFO,"test1","10",10);
+        slip1.addProductList(1,ProductType.LIFO,"test1","10",10);
         keeper.setProductListSlip(slip1.getProductList());
         System.out.println(keeper);
     }
