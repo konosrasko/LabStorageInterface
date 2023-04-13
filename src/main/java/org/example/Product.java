@@ -5,10 +5,6 @@ public class Product {
     private Enum type;
     private String desc, quantityMes;
 
-    public Product(){
-
-    }
-
     public Product(int productId, Enum type, String desc, String quantityMes, int quantity){
         this.productId = productId;
         this.type = type;

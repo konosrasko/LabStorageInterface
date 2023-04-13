@@ -5,9 +5,10 @@ import java.util.List;
 
 public class Slip {
     private List<Product> productList = new ArrayList<>();
+    private int slipID;
 
-    public void addProductList(){
-        productList.add(new Product());
+    public void addProductList(int productId, Enum type, String desc, String quantityMes, int quantity){
+        productList.add(new Product( productId,  type,  desc,  quantityMes,  quantity));
     }
 
     public List<Product> getProductList() {
