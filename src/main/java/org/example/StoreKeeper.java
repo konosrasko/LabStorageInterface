@@ -6,7 +6,9 @@ import java.util.List;
 public class StoreKeeper {
     private String keeperName;
     private int keeperId;
-    private List<Product> slipList = new ArrayList<>();
+    private List<Slip> slipList = new ArrayList<>();
+    private List<Product> productList1 = new ArrayList<>();
+    private List<Product> productList2 = new ArrayList<>();
     public StoreKeeper(){
 
     }
@@ -17,9 +19,13 @@ public class StoreKeeper {
     }
 
 
-    public void setSlipList(List<Product> productList) {
-        this.slipList = productList;
+    public void setSlipList(int slipId) {
+        slipList.add(new Slip(slipId));
     }
+
+//    public void setProductList1(int slipId){
+//        productList1.add();
+//    }
 
     public String getKeeperName() {
         return keeperName;
