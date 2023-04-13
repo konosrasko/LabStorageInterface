@@ -1,17 +1,26 @@
 package org.example;
 
 public class Spots {
-    private int spotID;
+    private int spotID, productId;
     private int corridor;
     private int shelf;
-    private int qnty;
+    private int qnty, prodQnty;
+
+    public Spots(){
+
+    }
 
     public Spots(int corridor, int shelf, int qnty, int spotID){
         this.corridor = corridor;
         this.shelf = shelf;
         this.qnty = qnty;
         this.spotID=spotID;
+//        this.productId = 0;
+//        this.prodQnty = 0;
     }
+
+
+
 
 
     public int getSpotID() {
