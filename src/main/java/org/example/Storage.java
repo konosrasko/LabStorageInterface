@@ -15,4 +15,14 @@ public class Storage {
     public void addSpots(int corridor, int shelf, int qnty, int spotID){
         spotsList.add(new Spots(corridor,shelf,qnty,spotID));
     }
+
+
+
+    public int getStorageID() {
+        return storageID;
+    }
+
+    public String getStorageName() {
+        return storageName;
+    }
 }
