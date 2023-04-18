@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StoreKeeperTest {
-    StoreKeeper st1 = new StoreKeeper();
+    StoreKeeper st1 = new StoreKeeper(1,"1");
+    StoreKeeper st2 = new StoreKeeper(2,"2");
     Slip s1 = new Slip();
     Slip s2 = new Slip();
 
@@ -46,18 +47,19 @@ class StoreKeeperTest {
     }
 
     @Test
-    void getKeeperName() {
-    }
+    void Search(){
+        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
 
-    @Test
-    void setKeeperName() {
-    }
+        st1.addSlip(s1);
 
-    @Test
-    void getKeeperId() {
-    }
+        s2.addProductList(4,ProductType.LIFO,"test","kg",2);
+        s2.addProductList(5,ProductType.FIFO,"test","kg",2);
+        s2.addProductList(6,ProductType.FIFO,"test","kg",2);
+        st2.addSlip(s2);
 
-    @Test
-    void setKeeperId() {
+        st1.searchPorduct(1,s1.getProductList());
+        st2.searchPorduct(4,s2.getProductList());
     }
 }
