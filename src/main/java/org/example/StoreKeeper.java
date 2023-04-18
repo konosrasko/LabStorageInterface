@@ -71,7 +71,7 @@ public class StoreKeeper {
                 getKeeperName();
                 System.out.println(productList.get(i).getProductId()+getKeeperId()+getKeeperName());
                 break;
-            }else break;
+            }
         }
     }
 
@@ -82,7 +82,7 @@ public class StoreKeeper {
                 getKeeperName();
                 System.out.println(spotsList.get(i).getSpotID()+getKeeperId()+getKeeperName());
                 break;
-            }else break;
+            }
         }
     }
 

@@ -48,6 +48,14 @@ class StoreKeeperTest {
 
     @Test
     void Search(){
+
+        Storage storage = new Storage();
+
+        storage.addSpots(1,1,1,1);
+        storage.addSpots(1,1,1,2);
+        storage.addSpots(1,1,1,3);
+        storage.addSpots(1,1,1,4);
+
         s1.addProductList(1,ProductType.FIFO,"test","kg",2);
         s1.addProductList(2,ProductType.FIFO,"test","kg",2);
         s1.addProductList(3,ProductType.LIFO,"test","kg",2);
@@ -61,5 +69,8 @@ class StoreKeeperTest {
 
         st1.searchPorduct(1,s1.getProductList());
         st2.searchPorduct(4,s2.getProductList());
+
+        st1.searchSpots(1,storage.getSpotsList());
+        st1.searchSpots(2,storage.getSpotsList());
     }
 }
