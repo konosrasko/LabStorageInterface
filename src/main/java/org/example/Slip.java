@@ -11,7 +11,6 @@ public class Slip{
 
     }
 
-
     public Slip(int slipId){
         this.slipId = slipId;
     }
@@ -24,9 +23,16 @@ public class Slip{
         return productList;
     }
 
+    public void setSlipId(int slipId) {
+        this.slipId = slipId;
+    }
+
     public int getSlipId() {
         return slipId;
     }
 
+    public List listreturn(int id){
+        return productList;
+    }
 
 }

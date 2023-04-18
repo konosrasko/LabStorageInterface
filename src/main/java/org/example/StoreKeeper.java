@@ -19,15 +19,18 @@ public class StoreKeeper {
         this.keeperName = keeperName;
     }
 
-    public void setSlipList(Slip productList){
-        slipList.add(productList);
+    public void setSlipList(int id){
+        Slip slip = new Slip();
+        slip.setSlipId(id);
+        slipList.add(new Slip(id));
     }
 
-//    public void setProductList1(){
-//        for (Slip slipList:slipList){
-//            if (slipList.)
-//        }
-//    }
+    public void setProductList1(int id){
+
+        for (Slip slipList:slipList){
+        }
+
+    }
 
 
     public String getKeeperName() {
