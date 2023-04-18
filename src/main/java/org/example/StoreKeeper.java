@@ -7,6 +7,8 @@ public class StoreKeeper {
     private String keeperName;
     private int keeperId;
     private List<Slip> slipList = new ArrayList<>();
+    private List<Product> productListFifo = new ArrayList<>();
+    private List<Product> productListLifo = new ArrayList<>();
 
     public StoreKeeper(){
 
@@ -16,7 +18,6 @@ public class StoreKeeper {
         this.keeperId = keeperId;
         this.keeperName = keeperName;
     }
-
 
     public void setSlipList(List<Slip> slipList) {
         this.slipList = slipList;
@@ -28,10 +29,18 @@ public class StoreKeeper {
 
 
 
+    public void setProductList(List<Product> productList) {
+        for (Slip slipList : slipList) {
+            for (int i=0; i<slipList.getProductList().size(); i++){
+            if (slipList.getProductList().get(i).getType().equals(ProductType.FIFO)) {
+                this.productListFifo.add(slipList.getProductList().get(i));
+            }else {
+                this.productListLifo.add(slipList.getProductList().get(i));
+            }
 
-
-
-
+        }
+        }
+    }
     public String getKeeperName() {
         return keeperName;
     }
