@@ -29,7 +29,7 @@ public class StoreKeeper {
 
     public void setProductList1(List<Product> productList1) {
         for (int i=0; i<=slipList.size(); i++){
-            if (slipList.get(i).getProductList().get(i).getType() == ProductType.FIFO){
+            if (slipList.get(i).getProductList().get(i).getType().equals( ProductType.FIFO)){
                 productList1.add(slipList.get(i).getProductList().get(i));
             }else productList2.add(slipList.get(i).getProductList().get(i));
         }
