@@ -8,10 +8,6 @@ public class Storage {
     private List<Spots> spotsList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
 
-    public List<Spots> getSpotsList() {
-        return spotsList;
-    }
-
     public void Storage(int storageID, String storageName){
         this.storageID=storageID;
         this.storageName=storageName;
@@ -23,15 +19,6 @@ public class Storage {
 
     public void addStoreKeeper(int keeperId ,String keeperName){
         storeKeeperList.add(new StoreKeeper(keeperId,keeperName));
-    }
-
-    public void assignProduct(int id,int pid){
-        for(Spots spotsList : spotsList){
-            if (spotsList.getSpotID()== id){
-                spotsList.setProductId(pid);
-                break;
-            }
-        }
     }
 
 
