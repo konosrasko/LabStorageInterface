@@ -6,13 +6,8 @@ import java.util.List;
 public class Slip{
 
     private List<Product> productList = new ArrayList<>();
-    private int slipId;
     public Slip(){
 
-    }
-
-    public Slip(int slipId){
-        this.slipId = slipId;
     }
 
     public void addProductList(int productId, Enum type, String desc, String quantityMes, int quantity){
@@ -23,16 +18,6 @@ public class Slip{
         return productList;
     }
 
-    public void setSlipId(int slipId) {
-        this.slipId = slipId;
-    }
 
-    public int getSlipId() {
-        return slipId;
-    }
-
-    public List listreturn(int id){
-        return productList;
-    }
 
 }

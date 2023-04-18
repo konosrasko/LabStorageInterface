@@ -7,8 +7,8 @@ public class StoreKeeper {
     private String keeperName;
     private int keeperId;
     private List<Slip> slipList = new ArrayList<>();
-    private List<Product> productList1 = new ArrayList<>();
-    private List<Product> productList2 = new ArrayList<>();
+    private List<Product> productListFifo = new ArrayList<>();
+    private List<Product> productListLifo = new ArrayList<>();
 
     public StoreKeeper(){
 
@@ -19,24 +19,28 @@ public class StoreKeeper {
         this.keeperName = keeperName;
     }
 
-    public void setSlipList(int id){
-        Slip slip = new Slip();
-        slip.setSlipId(id);
-        slipList.add(new Slip(id));
+    public void setSlipList(List<Slip> slipList) {
+        this.slipList = slipList;
+    }
+
+    public void addSlip(Slip slip){
+        this.slipList.add(slip);
     }
 
 
 
-    public void setProductList1(List<Product> productList1) {
-        for (int i=0; i<=slipList.size(); i++){
-            if (slipList.get(i).getProductList().get(i).getType().equals( ProductType.FIFO)){
-                productList1.add(slipList.get(i).getProductList().get(i));
-            }else productList2.add(slipList.get(i).getProductList().get(i));
+    public void setProductList(List<Product> productList) {
+        for (Slip slipList : slipList) {
+            for (int i=0; i<slipList.getProductList().size(); i++){
+            if (slipList.getProductList().get(i).getType().equals(ProductType.FIFO)) {
+                this.productListFifo.add(slipList.getProductList().get(i));
+            }else {
+                this.productListLifo.add(slipList.getProductList().get(i));
+            }
+
+        }
         }
     }
-
-
-
     public String getKeeperName() {
         return keeperName;
     }
