@@ -22,9 +22,6 @@ public class StoreKeeper {
         this.keeperName = keeperName;
     }
 
-    public void setSlipList(List<Slip> slipList) {
-        this.slipList = slipList;
-    }
 
     public void addSlip(Slip slip){
         this.slipList.add(slip);
@@ -43,6 +40,52 @@ public class StoreKeeper {
             }
         }
     }
+
+
+    public void assignProduct(int id, int pid, @NotNull List<Spots> spotsList){
+        for (int i=0; i<=spotsList.size(); i++){
+            if (spotsList.get(id).getSpotID() == id){
+                getKeeperName();
+                getKeeperId();
+                spotsList.get(id).setProductId(pid);
+                break;
+            }
+        }
+    }
+
+    public void removeProduct(int id, @NotNull List<Spots> spotsList){
+        for (int i=0; i<=spotsList.size(); i++){
+            if (spotsList.get(id).getSpotID() == id){
+                getKeeperName();
+                getKeeperId();
+                spotsList.get(id).setProductId(0);
+                break;
+            }
+        }
+    }
+
+    public void searchPorduct(int pid, @NotNull List<Product> productList){
+        for(int i=0; i<=productList.size(); i++){
+            if (productList.get(i).getProductId() == pid){
+                getKeeperId();
+                getKeeperName();
+                System.out.println(productList.get(i).getProductId()+getKeeperId()+getKeeperName());
+                break;
+            }else break;
+        }
+    }
+
+    public void searchSpots(int id, @NotNull List<Spots> spotsList){
+        for (int i=0; i<=spotsList.size(); i++){
+            if (spotsList.get(i).getSpotID()==id){
+                getKeeperId();
+                getKeeperName();
+                System.out.println(spotsList.get(i).getSpotID()+getKeeperId()+getKeeperName());
+                break;
+            }else break;
+        }
+    }
+
     public String getKeeperName() {
         return keeperName;
     }
@@ -58,40 +101,7 @@ public class StoreKeeper {
     public void setKeeperId(int keeperId) {
         this.keeperId = keeperId;
     }
-
-    public void assignProduct(int id, int pid, @NotNull List<Spots> spotsList){
-        for (int i=0; i<=spotsList.size(); i++){
-            if (spotsList.get(id).getSpotID() == id){
-                spotsList.get(id).setProductId(pid);
-                break;
-            }
-        }
-    }
-
-    public void removeProduct(int id, @NotNull List<Spots> spotsList){
-        for (int i=0; i<=spotsList.size(); i++){
-            if (spotsList.get(id).getSpotID() == id){
-                spotsList.get(id).setProductId(0);
-                break;
-            }
-        }
-    }
-
-    public void searchPorduct(int pid, @NotNull List<Product> productList){
-        for(int i=0; i<=productList.size(); i++){
-            if (productList.get(i).getProductId() == pid){
-                System.out.println(productList.get(i).getProductId());
-                break;
-            }else break;
-        }
-    }
-
-    public void searchSpots(int id, @NotNull List<Spots> spotsList){
-        for (int i=0; i<=spotsList.size(); i++){
-            if (spotsList.get(i).getSpotID()==id){
-                System.out.println(spotsList.get(i).getSpotID());
-                break;
-            }else break;
-        }
+    public void setSlipList(List<Slip> slipList) {
+        this.slipList = slipList;
     }
 }
