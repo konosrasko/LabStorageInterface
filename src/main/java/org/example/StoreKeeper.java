@@ -6,10 +6,9 @@ import java.util.List;
 public class StoreKeeper {
     private String keeperName;
     private int keeperId;
-    private List<Slip> slipList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
     private List<Product> productList1 = new ArrayList<>();
     private List<Product> productList2 = new ArrayList<>();
-
     public StoreKeeper(){
 
     }
@@ -19,16 +18,18 @@ public class StoreKeeper {
         this.keeperName = keeperName;
     }
 
-    public void setSlipList(Slip productList){
-        slipList.add(productList);
+
+    public void addProductList(int productId, Enum type, String desc, String quantityMes, int quantity){
+        productList.add(new Product(productId,  type,  desc,  quantityMes,  quantity));
+    }
+    public void addSlipToStoreKeeper(int slipID){
+        for (int i=0; i<=productList.size();i++);
+
     }
 
-//    public void setProductList1(){
-//        for (Slip slipList:slipList){
-//            if (slipList.)
-//        }
+//    public void setProductList1(int slipId){
+//        productList1.add();
 //    }
-
 
     public String getKeeperName() {
         return keeperName;
