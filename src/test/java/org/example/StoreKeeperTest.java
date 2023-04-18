@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StoreKeeperTest {
+    Storage storage = new Storage();
     StoreKeeper st1 = new StoreKeeper(1,"1");
     StoreKeeper st2 = new StoreKeeper(2,"2");
     Slip s1 = new Slip();
@@ -59,7 +60,35 @@ class StoreKeeperTest {
         s2.addProductList(6,ProductType.FIFO,"test","kg",2);
         st2.addSlip(s2);
 
-        st1.searchPorduct(1,s1.getProductList());
-        st2.searchPorduct(4,s2.getProductList());
+        st1.searchProduct(1,s1.getProductList());
+        st2.searchProduct(4,s2.getProductList());
+    }
+
+    @Test
+    void assignProduct() {
+        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
+        storage.addSpots(0,0,0,0);
+        storage.addSpots(0,0,0,1);
+        storage.addSpots(0,0,0,2);
+        st1.addSlip(s1);
+        st1.assignProduct(0,1,storage.getSpotsList());
+        assertEquals(storage.getSpotsList().get(0).getProductId(),1);
+    }
+
+
+    @Test
+    void removeProduct() {
+        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
+        storage.addSpots(0,0,0,0);
+        storage.addSpots(0,0,0,1);
+        storage.addSpots(0,0,0,2);
+        st1.addSlip(s1);
+        st1.assignProduct(0,1,storage.getSpotsList());
+        st1.removeProduct(0,storage.getSpotsList());
+        assertEquals(storage.getSpotsList().get(0).getProductId(),0);
     }
 }
