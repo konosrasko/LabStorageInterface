@@ -21,6 +21,9 @@ public class Storage {
         storeKeeperList.add(new StoreKeeper(keeperId,keeperName));
     }
 
+    public List<Spots> getSpotsList() {
+        return spotsList;
+    }
 
     public int getStorageID() {
         return storageID;

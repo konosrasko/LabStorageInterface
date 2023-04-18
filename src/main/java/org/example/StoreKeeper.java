@@ -8,7 +8,6 @@ import java.util.List;
 public class StoreKeeper {
     private String keeperName;
     private int keeperId;
-    private List<Product> productList = new ArrayList<>();
     private List<Slip> slipList = new ArrayList<>();
     private List<Product> productListFifo = new ArrayList<>();
     private List<Product> productListLifo = new ArrayList<>();
@@ -45,8 +44,6 @@ public class StoreKeeper {
     public void assignProduct(int id, int pid, @NotNull List<Spots> spotsList){
         for (int i=0; i<=spotsList.size(); i++){
             if (spotsList.get(id).getSpotID() == id){
-                getKeeperName();
-                getKeeperId();
                 spotsList.get(id).setProductId(pid);
                 break;
             }
@@ -56,19 +53,15 @@ public class StoreKeeper {
     public void removeProduct(int id, @NotNull List<Spots> spotsList){
         for (int i=0; i<=spotsList.size(); i++){
             if (spotsList.get(id).getSpotID() == id){
-                getKeeperName();
-                getKeeperId();
                 spotsList.get(id).setProductId(0);
                 break;
             }
         }
     }
 
-    public void searchPorduct(int pid, @NotNull List<Product> productList){
+    public void searchProduct(int pid, @NotNull List<Product> productList){
         for(int i=0; i<=productList.size(); i++){
             if (productList.get(i).getProductId() == pid){
-                getKeeperId();
-                getKeeperName();
                 System.out.println(productList.get(i).getProductId()+getKeeperId()+getKeeperName());
                 break;
             }
@@ -78,8 +71,6 @@ public class StoreKeeper {
     public void searchSpots(int id, @NotNull List<Spots> spotsList){
         for (int i=0; i<=spotsList.size(); i++){
             if (spotsList.get(i).getSpotID()==id){
-                getKeeperId();
-                getKeeperName();
                 System.out.println(spotsList.get(i).getSpotID()+getKeeperId()+getKeeperName());
                 break;
             }
