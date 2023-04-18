@@ -6,7 +6,6 @@ public class Spots {
     private int shelf;
     private int qnty, prodQnty;
 
-
     public Spots(int corridor, int shelf, int qnty, int spotID){
         this.corridor = corridor;
         this.shelf = shelf;

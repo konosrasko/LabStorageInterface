@@ -28,6 +28,25 @@ class StoreKeeperTest {
     }
 
     @Test
+    void ProductList(){
+
+        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(3,ProductType.FIFO,"test","kg",2);
+
+        st1.setSlipList(s1.getSlipId());
+
+        s2.addProductList(4,ProductType.FIFO,"test","kg",2);
+        s2.addProductList(5,ProductType.FIFO,"test","kg",2);
+        s2.addProductList(6,ProductType.FIFO,"test","kg",2);
+        st1.setSlipList(s2.getSlipId());
+
+        System.out.println(st1);
+        st1.setProductList1(s1.getProductList());
+
+    }
+
+    @Test
     void getKeeperName() {
     }
 
