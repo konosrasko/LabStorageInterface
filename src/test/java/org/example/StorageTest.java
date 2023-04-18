@@ -33,13 +33,18 @@ class StorageTest {
         s1.addProductList(3,ProductType.LIFO,"test","kg",2);
 
         st1.addSlip(s1);
-        System.out.println(st1);
         st1.setProductList(s1.getProductList());
         storage.addSpots(0,0,0,0);
         storage.addSpots(0,0,0,1);
         storage.addSpots(0,0,0,2);
 
-        storage.assignProduct(0,1);
+
+
+        st1.assignProduct(0,1,storage.getSpotsList());
+        st1.assignProduct(1,2,storage.getSpotsList());
+
+        st1.assignProduct(2,3,storage.getSpotsList());
+        st1.removeProduct(2,storage.getSpotsList());
     }
 
     @Test
