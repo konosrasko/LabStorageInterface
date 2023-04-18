@@ -82,7 +82,7 @@ public class StoreKeeper {
     }
 
     public void assignProduct(int id, int pid, @NotNull List<Spots> spotsList){
-        for (int i=0; i<spotsList.size(); i++){
+        for (int i=0; i<=spotsList.size(); i++){
             if (spotsList.get(id).getSpotID() == id){
                 spotsList.get(id).setProductId(pid);
                 break;
@@ -90,6 +90,12 @@ public class StoreKeeper {
         }
     }
 
-    public void assignProduct(List<Spots> spotsList){
+    public void removeProduct(int id, @NotNull List<Spots> spotsList){
+        for (int i=0; i<=spotsList.size(); i++){
+            if (spotsList.get(id).getSpotID() == id){
+                spotsList.get(id).setProductId(0);
+                break;
+            }
+        }
     }
 }

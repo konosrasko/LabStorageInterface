@@ -8,6 +8,10 @@ public class Storage {
     private List<Spots> spotsList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
 
+    public List<Spots> getSpotsList() {
+        return spotsList;
+    }
+
     public void Storage(int storageID, String storageName){
         this.storageID=storageID;
         this.storageName=storageName;
