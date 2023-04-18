@@ -63,4 +63,8 @@ public class Spots {
     public int getQnty() {
         return qnty;
     }
+
+    public int getProductId() {
+        return productId;
+    }
 }

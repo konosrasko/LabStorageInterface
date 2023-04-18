@@ -6,6 +6,7 @@ import java.util.List;
 public class StoreKeeper {
     private String keeperName;
     private int keeperId;
+    private List<Spots> spotsList = new ArrayList<>();
     private List<Slip> slipList = new ArrayList<>();
     private List<Product> productListFifo = new ArrayList<>();
     private List<Product> productListLifo = new ArrayList<>();
@@ -40,6 +41,28 @@ public class StoreKeeper {
         }
         }
     }
+
+    public void assignProcductToSpot(int spotID,int pid) {
+        for (Spots spotsList : spotsList ) {
+            if (spotsList.getSpotID() == spotID) {
+                spotsList.setProductId(pid);
+                break;
+            }
+        }
+    }
+
+    public void removeProductFromSpot(int spotID, int pid){
+        for (Spots spotsList : spotsList){
+            if (spotsList.getSpotID() == spotID){
+                spotsList.
+
+            }
+        }
+    }
+
+
+
+
     public String getKeeperName() {
         return keeperName;
     }

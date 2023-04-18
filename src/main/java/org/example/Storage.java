@@ -21,6 +21,7 @@ public class Storage {
         storeKeeperList.add(new StoreKeeper(keeperId,keeperName));
     }
 
+    /*
     public void assignProduct(int id,int pid){
         for(Spots spotsList : spotsList){
             if (spotsList.getSpotID()== id){
@@ -29,6 +30,7 @@ public class Storage {
             }
         }
     }
+    */
 
 
     public int getStorageID() {
@@ -37,5 +39,9 @@ public class Storage {
 
     public String getStorageName() {
         return storageName;
+    }
+
+    public List<Spots> getSpotsList() {
+        return spotsList;
     }
 }
