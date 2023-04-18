@@ -8,7 +8,7 @@ import java.util.List;
 public class StoreKeeper {
     private String keeperName;
     private int keeperId;
-    private List<Spots> spotsList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
     private List<Slip> slipList = new ArrayList<>();
     private List<Product> productListFifo = new ArrayList<>();
     private List<Product> productListLifo = new ArrayList<>();
@@ -34,37 +34,15 @@ public class StoreKeeper {
     public void setProductList(List<Product> productList) {
         for (Slip slipList : slipList) {
             for (int i=0; i<slipList.getProductList().size(); i++){
-            if (slipList.getProductList().get(i).getType().equals(ProductType.FIFO)) {
-                this.productListFifo.add(slipList.getProductList().get(i));
-            }else {
-                this.productListLifo.add(slipList.getProductList().get(i));
-            }
-
-        }
-        }
-    }
-
-    public void assignProcductToSpot(int spotID,int pid) {
-        for (Spots spotsList : spotsList ) {
-            if (spotsList.getSpotID() == spotID) {
-                spotsList.setProductId(pid);
-                break;
-            }
-        }
-    }
-
-    public void removeProductFromSpot(int spotID, int pid){
-        for (Spots spotsList : spotsList){
-            if (spotsList.getSpotID() == spotID){
-                spotsList.
+                if (slipList.getProductList().get(i).getType().equals(ProductType.FIFO)) {
+                    this.productListFifo.add(slipList.getProductList().get(i));
+                }else {
+                    this.productListLifo.add(slipList.getProductList().get(i));
+                }
 
             }
         }
     }
-
-
-
-
     public String getKeeperName() {
         return keeperName;
     }
@@ -82,7 +60,7 @@ public class StoreKeeper {
     }
 
     public void assignProduct(int id, int pid, @NotNull List<Spots> spotsList){
-        for (int i=0; i<spotsList.size(); i++){
+        for (int i=0; i<=spotsList.size(); i++){
             if (spotsList.get(id).getSpotID() == id){
                 spotsList.get(id).setProductId(pid);
                 break;
@@ -90,6 +68,30 @@ public class StoreKeeper {
         }
     }
 
-    public void assignProduct(List<Spots> spotsList){
+    public void removeProduct(int id, @NotNull List<Spots> spotsList){
+        for (int i=0; i<=spotsList.size(); i++){
+            if (spotsList.get(id).getSpotID() == id){
+                spotsList.get(id).setProductId(0);
+                break;
+            }
+        }
+    }
+
+    public void searchPorduct(int pid, List<Product> productList){
+        for(int i=0; i<=productList.size(); i++){
+            if (productList.get(i).getProductId() == pid){
+                System.out.println(productList.get(i).getProductId());
+                break;
+            }else break;
+        }
+    }
+
+    public void searchSpots(int id, List<Spots> spotsList){
+        for (int i=0; i<=spotsList.size(); i++){
+            if (spotsList.get(i).getSpotID()==id){
+                System.out.println(spotsList.get(i).getSpotID());
+                break;
+            }else break;
+        }
     }
 }
