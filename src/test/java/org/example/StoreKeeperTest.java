@@ -48,7 +48,7 @@ class StoreKeeperTest {
     }
 
     @Test
-    void Search(){
+    void SearchProduct(){
         s1.addProductList(1,ProductType.FIFO,"test","kg",2);
         s1.addProductList(2,ProductType.FIFO,"test","kg",2);
         s1.addProductList(3,ProductType.LIFO,"test","kg",2);
@@ -64,6 +64,28 @@ class StoreKeeperTest {
 
         assertEquals(1,st1.searchProduct(1,s1.getProductList()));
 
+    }
+    @Test
+    void searchSpot(){
+        Storage storage1= new Storage();
+        storage1.addSpots(0,0,0,0);
+        storage1.addSpots(0,0,0,1);
+        storage1.addSpots(0,0,0,2);
+
+        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
+
+        st1.addSlip(s1);
+
+        s2.addProductList(4,ProductType.LIFO,"test","kg",2);
+        s2.addProductList(5,ProductType.FIFO,"test","kg",2);
+        s2.addProductList(6,ProductType.FIFO,"test","kg",2);
+        st2.addSlip(s2);
+
+
+
+        assertEquals(1,st1.searchSpots(1,storage1.getSpotsList()));
     }
 
     @Test
