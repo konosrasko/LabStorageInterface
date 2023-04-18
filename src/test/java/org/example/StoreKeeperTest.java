@@ -33,15 +33,15 @@ class StoreKeeperTest {
         s1.addProductList(2,ProductType.FIFO,"test","kg",2);
         s1.addProductList(3,ProductType.LIFO,"test","kg",2);
 
-      //  st1.addSlip(s1);
+        st1.addSlip(s1);
 
         s2.addProductList(4,ProductType.LIFO,"test","kg",2);
         s2.addProductList(5,ProductType.FIFO,"test","kg",2);
         s2.addProductList(6,ProductType.FIFO,"test","kg",2);
-        //st1.addSlip(s2);
+        st1.addSlip(s2);
 
         System.out.println(st1);
-       // st1.setProductList(s1.getProductList());
+        st1.setProductList(s1.getProductList());
 
     }
 

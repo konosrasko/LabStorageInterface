@@ -6,6 +6,7 @@ public class Storage {
     private int storageID;
     private String storageName;
     private List<Spots> spotsList = new ArrayList<>();
+    private List<StoreKeeper> storeKeeperList = new ArrayList<>();
 
     public void Storage(int storageID, String storageName){
         this.storageID=storageID;
@@ -16,6 +17,18 @@ public class Storage {
         spotsList.add(new Spots(corridor,shelf,qnty,spotID));
     }
 
+    public void addStoreKeeper(int keeperId ,String keeperName){
+        storeKeeperList.add(new StoreKeeper(keeperId,keeperName));
+    }
+
+    public void assignProduct(int id,int pid){
+        for(Spots spotsList : spotsList){
+            if (spotsList.getSpotID()== id){
+                spotsList.setProductId(pid);
+                break;
+            }
+        }
+    }
 
 
     public int getStorageID() {

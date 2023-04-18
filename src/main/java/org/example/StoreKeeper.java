@@ -28,7 +28,6 @@ public class StoreKeeper {
     }
 
 
-
     public void setProductList(List<Product> productList) {
         for (Slip slipList : slipList) {
             for (int i=0; i<slipList.getProductList().size(); i++){
@@ -55,5 +54,9 @@ public class StoreKeeper {
 
     public void setKeeperId(int keeperId) {
         this.keeperId = keeperId;
+    }
+
+
+    public void assignProduct(List<Spots> spotsList){
     }
 }
