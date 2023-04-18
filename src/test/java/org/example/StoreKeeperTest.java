@@ -60,8 +60,10 @@ class StoreKeeperTest {
         s2.addProductList(6,ProductType.FIFO,"test","kg",2);
         st2.addSlip(s2);
 
-        st1.searchProduct(1,s1.getProductList());
-        st2.searchProduct(4,s2.getProductList());
+
+
+        assertEquals(1,st1.searchProduct(1,s1.getProductList()));
+
     }
 
     @Test

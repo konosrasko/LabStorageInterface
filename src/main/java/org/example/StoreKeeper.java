@@ -59,22 +59,22 @@ public class StoreKeeper {
         }
     }
 
-    public void searchProduct(int pid, @NotNull List<Product> productList){
+    public int searchProduct(int pid, @NotNull List<Product> productList){
         for(int i=0; i<=productList.size(); i++){
             if (productList.get(i).getProductId() == pid){
-                System.out.println(productList.get(i).getProductId()+getKeeperId()+getKeeperName());
-                break;
+                return productList.get(i).getProductId();
             }
         }
+        return  1;
     }
 
-    public void searchSpots(int id, @NotNull List<Spots> spotsList){
-        for (int i=0; i<=spotsList.size(); i++){
-            if (spotsList.get(i).getSpotID()==id){
-                System.out.println(spotsList.get(i).getSpotID()+getKeeperId()+getKeeperName());
-                break;
+    public int searchSpots(int id, @NotNull List<Spots> spotsList) {
+        for (int i = 0; i <= spotsList.size(); i++) {
+            if (spotsList.get(i).getSpotID() == id) {
+                return spotsList.get(i).getSpotID();
             }
         }
+        return  1;
     }
 
     public String getKeeperName() {
