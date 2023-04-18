@@ -77,7 +77,7 @@ public class StoreKeeper {
         }
     }
 
-    public void searchPorduct(int pid, List<Product> productList){
+    public void searchPorduct(int pid, @NotNull List<Product> productList){
         for(int i=0; i<=productList.size(); i++){
             if (productList.get(i).getProductId() == pid){
                 System.out.println(productList.get(i).getProductId());
@@ -86,7 +86,7 @@ public class StoreKeeper {
         }
     }
 
-    public void searchSpots(int id, List<Spots> spotsList){
+    public void searchSpots(int id, @NotNull List<Spots> spotsList){
         for (int i=0; i<=spotsList.size(); i++){
             if (spotsList.get(i).getSpotID()==id){
                 System.out.println(spotsList.get(i).getSpotID());
