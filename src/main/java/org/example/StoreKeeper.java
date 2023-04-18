@@ -1,5 +1,7 @@
 package org.example;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,6 +58,14 @@ public class StoreKeeper {
         this.keeperId = keeperId;
     }
 
+    public void assignProduct(int id, int pid, @NotNull List<Spots> spotsList){
+        for (int i=0; i<spotsList.size(); i++){
+            if (spotsList.get(id).getSpotID() == id){
+                spotsList.get(id).setProductId(pid);
+                break;
+            }
+        }
+    }
 
     public void assignProduct(List<Spots> spotsList){
     }
