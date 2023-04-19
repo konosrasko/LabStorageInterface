@@ -34,7 +34,7 @@ class StorageTest {
 
         st1.addSlip(s1);
         System.out.println(st1);
-        st1.setProductList(s1.getProductList());
+        st1.setProductList();
         storage.addSpots(0,0,0,0);
         storage.addSpots(0,0,0,1);
         storage.addSpots(0,0,0,2);

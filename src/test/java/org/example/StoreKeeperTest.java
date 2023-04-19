@@ -43,7 +43,7 @@ class StoreKeeperTest {
         st1.addSlip(s2);
 
         System.out.println(st1);
-        st1.setProductList(s1.getProductList());
+        st1.setProductList();
 
     }
 
@@ -81,14 +81,17 @@ class StoreKeeperTest {
     @Test
     void removeProduct() {
         s1.addProductList(1,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
+        s1.addProductList(5,ProductType.FIFO,"test","kg",2);
+        s1.addProductList(7,ProductType.LIFO,"test","kg",2);
         storage.addSpots(0,0,0,0);
         storage.addSpots(0,0,0,1);
         storage.addSpots(0,0,0,2);
         st1.addSlip(s1);
+        st1.setProductList();
         st1.assignProduct(0,1,storage.getSpotsList());
-        st1.removeProduct(0,storage.getSpotsList());
+        st1.assignProduct(1,5,storage.getSpotsList());
+        st1.assignProduct(2,7,storage.getSpotsList());
+        st1.removeProduct(1,storage.getSpotsList());
         assertEquals(storage.getSpotsList().get(0).getProductId(),0);
     }
 }
