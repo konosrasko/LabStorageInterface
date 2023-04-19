@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StoreKeeper {
+public class StoreKeeper{
     private String keeperName;
     private int keeperId;
     private List<Slip> slipList = new ArrayList<>();
@@ -32,27 +32,24 @@ public class StoreKeeper {
     public void setProductList() {
         for (Slip slipList : slipList) {
             for(Product product : slipList.getProductList()){
-                if (product.getType().equals(ProductType.FIFO)){
-                    productListAll.add(product);
-                }
-            }
+                    productListAll.add(product);}
         }
     }
 
 
-    public void assignProduct(int id, int pid, @NotNull List<Spots> spotsList){
+    public List assignProduct(int id, int pid, List<Spots> spotsList){
         for (Spots spot : spotsList){
-            if (spot.getQnty()==id) {
+            if (spot.getSpotID() == id) {
                 spot.setProductId(pid);
-                break;
             }
         }
+        return spotsList;
     }
 
-    public void removeProduct(int pid, @NotNull List<Spots> spotsList){
+    public List removeProduct(int pid, List<Spots> spotsList){
         List<Product> sorted = productListAll.stream()
                 .filter(product -> product.getType().equals(ProductType.FIFO))
-                .collect(Collectors.toList());
+                .toList();
         for(Product product : sorted){
             if (product.getProductId() == pid){
                 break;
@@ -64,6 +61,7 @@ public class StoreKeeper {
                 break;
             }
         }
+        return spotsList;
     }
 
     public int searchProduct(int pid, @NotNull List<Product> productList){
