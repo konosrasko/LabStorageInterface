@@ -2,9 +2,7 @@ package org.example;
 
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,37 +30,44 @@ public class StoreKeeper{
     public void setProductList() {
         for (Slip slipList : slipList) {
             for(Product product : slipList.getProductList()){
-                    productListAll.add(product);}
+                    productListAll.add(product);
+            }
         }
     }
 
 
     public List assignProduct(int id, int pid, List<Spots> spotsList){
         for (Spots spot : spotsList){
-            if (spot.getSpotID() == id) {
+            if ((spot.getSpotID() == id) && (spot.getProductId()==0)) {
                 spot.setProductId(pid);
+                //spot.setQnty();
             }
         }
         return spotsList;
     }
 
     public List removeProduct(int pid, List<Spots> spotsList){
-        List<Product> sorted = productListAll.stream()
-                .filter(product -> product.getType().equals(ProductType.FIFO))
-                .toList();
-        for(Product product : sorted){
-            if (product.getProductId() == pid){
-                break;
-            }
-        }
-        for (Spots spot : spotsList){
-            if (spot.getProductId() == pid){
-                spot.setProductId(0);
-                break;
+        for(Product product : productListAll){
+            if (product.getType()==ProductType.FIFO){
+                
+                for(Product product1 : sortedFIFO()) {
+                    if (product1.getProductId() == pid) {
+                        spotsList.get(pid).setProductId(0);
+                        productListAll.remove(product1);
+                    }
+                }
+            } else {
+                for (Product product1 : sortedLIFO()){
+                    if (product1.getProductId() == pid){
+                        spotsList.get(pid).setProductId(0);
+                        productListAll.remove(product1);
+                    }
+                }
             }
         }
         return spotsList;
     }
+
 
     public int searchProduct(int pid, @NotNull List<Product> productList){
         for(Product product : productList){
@@ -80,6 +85,20 @@ public class StoreKeeper{
             }
         }
         return 1;
+    }
+
+    public List<Product> sortedFIFO(){
+        List<Product> sortedFIFO = productListAll.stream()
+                .filter(product -> product.getType().equals(ProductType.FIFO))
+                .collect(Collectors.toList());
+        return sortedFIFO;
+    }
+
+    public List<Product> sortedLIFO(){
+        List<Product> sortedLIFO = productListAll.stream()
+                .filter(product -> product.getType().equals(ProductType.LIFO))
+                .collect(Collectors.toList());
+        return sortedLIFO;
     }
 
     public String getKeeperName() {
