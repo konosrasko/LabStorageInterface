@@ -39,8 +39,8 @@ public class StoreKeeper{
         return productListAll;
     }
 
-    public List assignProduct(int id, int pid, List<Spots> spotsList){
-        for (Spots spot : spotsList){
+    public List assignProduct(int id, int pid, List<Spot> spotsList){
+        for (Spot spot : spotsList){
             if ((spot.getSpotID() == id) && (spot.getProductId()==0)) {
                 spot.setProductId(pid);
                 //spot.setQnty();
@@ -49,7 +49,7 @@ public class StoreKeeper{
         return spotsList;
     }
 
-    public List removeProduct(int pid, List<Spots> spotsList){
+    public List removeProduct(int pid, List<Spot> spotsList){
         for(Product product : productListAll){
             if (product.getType()==ProductType.FIFO){
                 
@@ -81,8 +81,8 @@ public class StoreKeeper{
         return 1;
     }
 
-    public int searchSpots(int id, @NotNull List<Spots> spotsList){
-        for (Spots spot : spotsList){
+    public int searchSpots(int id, @NotNull List<Spot> spotsList){
+        for (Spot spot : spotsList){
             if (spot.getSpotID()==id){
                 return spot.getSpotID();
             }

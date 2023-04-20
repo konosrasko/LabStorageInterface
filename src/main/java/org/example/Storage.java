@@ -1,12 +1,11 @@
 package org.example;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.List;
 
 public class Storage {
     private int storageID;
     private String storageName;
-    private List<Spots> spotsList = new ArrayList<>();
+    private List<Spot> spotsList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
 
     public void Storage(int storageID, String storageName){
@@ -15,14 +14,14 @@ public class Storage {
     }
 
     public void addSpots(int corridor, int shelf, int qnty, int spotID){
-        spotsList.add(new Spots(corridor,shelf,qnty,spotID));
+        spotsList.add(new Spot(corridor,shelf,qnty,spotID));
     }
 
     public void addStoreKeeper(int keeperId ,String keeperName){
         storeKeeperList.add(new StoreKeeper(keeperId,keeperName));
     }
 
-    public List<Spots> getSpotsList() {
+    public List<Spot> getSpotsList() {
         return spotsList;
     }
 
@@ -36,7 +35,7 @@ public class Storage {
 
     public int emptySpots(){
         int s = 0;
-        for (Spots spot : spotsList){
+        for (Spot spot : spotsList){
             if (spot.getProductId()==0){
                 s +=1;
             }

@@ -1,20 +1,20 @@
 package org.example;
 
-public class Spots {
+public class Spot {
     private int spotID, productId;
     private int corridor;
     private int shelf;
     private int qnty, prodQnty;
 
-    public Spots(){}
-    public Spots(int corridor, int shelf, int qnty, int spotID){
+    public Spot(){}
+    public Spot(int corridor, int shelf, int qnty, int spotID){
         this.corridor = corridor;
         this.shelf = shelf;
         this.qnty = qnty;
         this.spotID=spotID;
     }
 
-    public Spots(int corridor, int shelf, int qnty, int spotID, int productId){
+    public Spot(int corridor, int shelf, int qnty, int spotID, int productId){
         this.corridor = corridor;
         this.shelf = shelf;
         this.qnty = qnty;

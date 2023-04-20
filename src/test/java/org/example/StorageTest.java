@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StorageTest {
     Storage storage = new Storage();
-    Spots spots = new Spots();
+    Spot spots = new Spot();
 
     StoreKeeper st1 = new StoreKeeper();
     Slip s1 = new Slip();

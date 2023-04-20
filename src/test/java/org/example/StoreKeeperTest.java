@@ -31,7 +31,7 @@ class StoreKeeperTest {
 
 
     @Test
-    void SearchProduct(){
+    void searchProduct(){
         s1.addProductList(1,ProductType.FIFO,"test","kg",2);
         s1.addProductList(2,ProductType.FIFO,"test","kg",2);
         s1.addProductList(3,ProductType.LIFO,"test","kg",2);
