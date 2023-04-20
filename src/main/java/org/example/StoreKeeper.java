@@ -2,11 +2,11 @@ package org.example;
 
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class StoreKeeper{
     private String keeperName;
@@ -38,7 +38,7 @@ public class StoreKeeper{
 
 
     public List assignProduct(int id, int pid, List<Spots> spotsList){
-        for (Spots spot : spotsList){
+        for (Spots spot : spotsList) {
             if (spot.getSpotID() == id) {
                 spot.setProductId(pid);
             }
@@ -49,7 +49,7 @@ public class StoreKeeper{
     public List removeProduct(int pid, List<Spots> spotsList){
         List<Product> sorted = productListAll.stream()
                 .filter(product -> product.getType().equals(ProductType.FIFO))
-                .toList();
+                .collect(toList());
         for(Product product : sorted){
             if (product.getProductId() == pid){
                 break;
