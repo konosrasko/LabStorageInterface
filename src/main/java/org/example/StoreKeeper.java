@@ -35,6 +35,9 @@ public class StoreKeeper{
         }
     }
 
+    public List<Product> getProductListAll() {
+        return productListAll;
+    }
 
     public List assignProduct(int id, int pid, List<Spots> spotsList){
         for (Spots spot : spotsList){
@@ -52,15 +55,15 @@ public class StoreKeeper{
                 
                 for(Product product1 : sortedFIFO()) {
                     if (product1.getProductId() == pid) {
-                        spotsList.get(pid).setProductId(0);
                         productListAll.remove(product1);
+                        return spotsList;
                     }
                 }
             } else {
                 for (Product product1 : sortedLIFO()){
                     if (product1.getProductId() == pid){
-                        spotsList.get(pid).setProductId(0);
                         productListAll.remove(product1);
+                        return spotsList;
                     }
                 }
             }

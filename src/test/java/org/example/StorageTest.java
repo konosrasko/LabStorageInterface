@@ -39,7 +39,6 @@ class StorageTest {
         storage.addSpots(0,0,0,1);
         storage.addSpots(0,0,0,2);
 
-       // storage.assignProduct(0,1);
     }
 
     @Test
