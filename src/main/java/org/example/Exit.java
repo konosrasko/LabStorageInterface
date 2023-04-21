@@ -1,13 +1,12 @@
 package org.example;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 public class Exit {
     private int slipExitSlip;
     private String slipExitDesc;
     private List<Spot> spotList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
 
     public Exit(int slipExitSlip, String slipExitDesc){
         this.slipExitSlip=slipExitSlip;
@@ -21,7 +20,9 @@ public class Exit {
             if (spotList.get(i).getProductId()==pid){
                 exitSlipList.add(spotList.get(i).getProductId());
                 spot.setProductId(0);
+
             }
+            i++;
         }
         return exitSlipList;
     }

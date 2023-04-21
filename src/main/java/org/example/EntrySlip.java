@@ -27,8 +27,15 @@ public class EntrySlip {
         return productList;
     }
 
+    public String getProductGeneralType() {
+        return productGeneralType;
+    }
 
+    public int getEntrySlipCode() {
+        return entrySlipCode;
+    }
 
-
-
+    public String getEntrySlipDesc() {
+        return entrySlipDesc;
+    }
 }
