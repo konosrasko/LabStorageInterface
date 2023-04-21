@@ -28,12 +28,8 @@ public class Storage {
         return spotsList;
     }
 
-    public int getStorageID() {
-        return storageID;
-    }
-
-    public String getStorageName() {
-        return storageName;
+    public List<EntrySlip> getEntrySlips() {
+        return entrySlips;
     }
 
     public int emptySpots(){
@@ -46,7 +42,11 @@ public class Storage {
         return s;
     }
 
-    public List<EntrySlip> getEntrySlips() {
-        return entrySlips;
+    public int getStorageID() {
+        return storageID;
+    }
+
+    public String getStorageName() {
+        return storageName;
     }
 }
