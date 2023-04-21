@@ -5,10 +5,10 @@ import java.util.List;
 
 public class EntrySlip {
 
-    private List<Product> productList = new ArrayList<>();
     private String productGeneralType;
     private int entrySlipCode;
     private String entrySlipDesc;
+    private List<Product> productList = new ArrayList<>();
 
     public EntrySlip(int entrySlipCode,String productGeneralType,String entrySlipDesc){
         this.entrySlipCode=entrySlipCode;
