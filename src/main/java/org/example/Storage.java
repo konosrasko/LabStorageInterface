@@ -2,13 +2,14 @@ package org.example;
 import java.nio.file.attribute.AclEntryType;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ServiceLoader;
 
 public class Storage {
     private int storageID;
     private String storageName;
     private List<Spot> spotsList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
-    private List<Product> productList = new ArrayList<>();
+    private List<EntrySlip> entrySlips = new ArrayList<>();
 
     public void Storage(int storageID, String storageName){
         this.storageID=storageID;
@@ -45,7 +46,7 @@ public class Storage {
         return s;
     }
 
-
-
-
+    public List<EntrySlip> getEntrySlips() {
+        return entrySlips;
+    }
 }
