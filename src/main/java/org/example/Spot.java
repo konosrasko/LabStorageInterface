@@ -1,12 +1,13 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Spot {
     private int spotID, productId;
     private int corridor;
     private int shelf;
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     public Spot(){}
 

@@ -36,11 +36,17 @@ class StorageTest1 {
 
     @Test
     void setEntrySlips() {
+        s1.setStorageName("ena");
+        s1.setStorageID(1);
+        s1.addSpots(0,1,1);
+        s1.addSpots(1,1,2);
+        s1.addStoreKeeper(1,"ta");
         EntrySlip eS = new EntrySlip();
         eS.addProduct(1,ProductCategory.FIFO,"Tipo");
+        eS.addProduct(2,ProductCategory.FIFO,"Tipo");
         Entry entry = new Entry();
         entry.setProductList(eS);
-        entry.assignProduct()
+        entry.assignProduct(s1.getSpotsList());
     }
 
     @Test

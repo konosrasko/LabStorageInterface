@@ -26,8 +26,4 @@ public class StoreKeeper {
     public List<EntrySlip> getSlipList() {
         return slipList;
     }
-
-    public void setSlipList(List<EntrySlip> slipList) {
-        this.slipList = slipList;
-    }
 }

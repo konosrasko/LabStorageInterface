@@ -1,9 +1,10 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Entry {
-    private List<Product> entrySlips;
+    private List<Product> products = new ArrayList<>();
     public Entry(){
     }
 
@@ -12,18 +13,19 @@ public class Entry {
 
     public void setProductList(EntrySlip slip) {
         for (Product product : slip.getProductList() ) {
-                entrySlips.add(product);
+                products.add(product);
         }
     }
 
-    public List assignProduct(int id,int pid,List<Spot> spotList) {
-        for (Product product : entrySlips) {
+    public List assignProduct(List<Spot> spotList) {
+        for (Product product : products) {
             for(Spot spot : spotList) {
-                if (spot.getSpotID() == id) {
-                    spot.setProductId(pid);
+                if (spot.getProductId() == 0) {
+                    spot.setProductId(product.getProductId());
                 }
             }
         }
+        products.clear();
         return spotList;
     }
 
