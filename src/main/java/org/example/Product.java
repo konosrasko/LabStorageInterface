@@ -1,5 +1,7 @@
 package org.example;
 
+import java.time.LocalTime;
+
 public class Product {
     private int productId, quantity;
     private Enum type;
