@@ -3,7 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Slip{
+public class EntrySlip{
 
     private List<Product> productList = new ArrayList<>();
     private String generalType;
@@ -11,10 +11,10 @@ public class Slip{
     private String slipEntryDesc;
     private String mesUnit;
     private int qnty;
-    public Slip(){
+    public EntrySlip(){
 
     }
-    public Slip(int slipEntryCode, String generalType,String slipEntryDesc,String mesUnit,int qnty){
+    public EntrySlip(int slipEntryCode, String generalType,String slipEntryDesc,String mesUnit,int qnty){
         this.slipEntryCode=slipEntryCode;
         this.generalType=generalType;
         this.slipEntryDesc =slipEntryDesc;

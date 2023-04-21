@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Search {
     private List<Spot> spotList = new ArrayList<>();
     private List<StoreKeeper> storeKeepersList = new ArrayList<>();
-    private List<Slip> slipList = new ArrayList<>();
+    private List<EntrySlip> slipList = new ArrayList<>();
 
 
     public Search(){}

@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class StoreKeeper{
     private String keeperName;
     private int keeperId;
-    private List<Slip> slipList = new ArrayList<>();
+    private List<EntrySlip> EntrySlipList = new ArrayList<>();
     private List<Product> productListAll = new ArrayList<>();
 
     public StoreKeeper(){
@@ -22,13 +22,13 @@ public class StoreKeeper{
     }
 
 
-    public void addSlip(Slip slip){
-        this.slipList.add(slip);
+    public void addSlip(EntrySlip EntrySlip){
+        this.EntrySlipList.add(EntrySlip);
     }
 
 
     public void setProductList() {
-        for (Slip slipList : slipList) {
+        for (EntrySlip entrySlip : entrySlip) {
             for(Product product : slipList.getProductList()){
                     productListAll.add(product);
             }
