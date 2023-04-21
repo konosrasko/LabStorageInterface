@@ -30,11 +30,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Enum getType() {
+    public Enum getProductCategory() {
         return type;
     }
 
-    public void setType(Enum type) {
+    public void setProductCategory(Enum type) {
         this.type = type;
     }
 
