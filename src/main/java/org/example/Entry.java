@@ -18,8 +18,8 @@ public class Entry {
     }
 
     public List assignProduct(List<Spot> spotList) {
-        for (Product product : products) {
             for(Spot spot : spotList) {
+                for (Product product : products) {
                 if (spot.getProductId() == 0) {
                     spot.setProductId(product.getProductId());
                 }

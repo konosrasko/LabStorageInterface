@@ -65,7 +65,15 @@ public class Storage {
         return storageName;
     }
 
-    public void setEntrySlip(List<Product> productList,List<Spot> spotList){
+    public List<StoreKeeper> getStoreKeeperList() {
+        return storeKeeperList;
+    }
+
+    public List<Spot> getSpotList() {
+        return spotList;
+    }
+
+    public void setEntrySlip(List<Product> productList, List<Spot> spotList){
         for (Product product : productList){
 
         }
