@@ -23,6 +23,9 @@ public class StoreKeeper {
         this.slipList.add(slip);
     }
 
+    public List<EntrySlip> getSlipList() {
+        return slipList;
+    }
 
     public void setSlipList(List<EntrySlip> slipList) {
         this.slipList = slipList;
