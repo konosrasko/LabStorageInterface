@@ -9,10 +9,16 @@ public class Spot {
     private List<Product> products;
 
     public Spot(){}
-    public Spot(int corridor, int shelf, int spotID){
+
+
+    public Spot(int spotID, int corridor, int shelf){
         this.spotID=spotID;
         this.corridor = corridor;
         this.shelf = shelf;
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 
     public void setProductId(int productId) {
@@ -45,10 +51,6 @@ public class Spot {
 
     public int getProductId() {
         return productId;
-    }
-
-    public List<Product> getProducts() {
-        return products;
     }
 
 }
