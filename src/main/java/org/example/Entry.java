@@ -18,12 +18,12 @@ public class Entry {
     }
 
     public List assignProduct(List<Spot> spotList) {
-            for(Spot spot : spotList) {
-                for (Product product : products) {
+        int i=0;
+        for(Spot spot : spotList) {
                 if (spot.getProductId() == 0) {
-                    spot.setProductId(product.getProductId());
+                    spot.setProductId(products.get(i).getProductId());
+                    i++;
                 }
-            }
         }
         products.clear();
         return spotList;
