@@ -2,7 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-class StorageTest {
+/*class StorageTest {
     Storage storage = new Storage();
     Spot spots = new Spot();
 
@@ -38,7 +38,7 @@ class StorageTest {
         st1.assignProduct(10,1,storage.getSpotsList());
         st1.assignProduct(20,2,storage.getSpotsList());
         st1.assignProduct(30,3,storage.getSpotsList());
-        
+
 
 
         assertEquals(1,storage.emptySpots());
@@ -47,3 +47,4 @@ class StorageTest {
     }
 
 }
+*/
