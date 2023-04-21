@@ -26,4 +26,12 @@ public class StoreKeeper {
     public List<EntrySlip> getSlipList() {
         return slipList;
     }
+
+    public String getKeeperName() {
+        return keeperName;
+    }
+
+    public int getKeeperId() {
+        return keeperId;
+    }
 }
