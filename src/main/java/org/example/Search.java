@@ -5,14 +5,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Search {
-    private List<Spot> spotList = new ArrayList<>();
-    private List<StoreKeeper> storeKeepersList = new ArrayList<>();
-    private List<EntrySlip> entrySlipList = new ArrayList<>();
 
 
     public Search(){}
 
-   /* public List searchOfProduct(int ProductCode){
+    public List searchOfProduct(int ProductCode,List<StoreKeeper> storeKeepersList, List<EntrySlip> entrySlipList){
         List searchOfProductResult = new ArrayList();
         int i =0;
         for(StoreKeeper storeKeeper : storeKeepersList){
@@ -20,11 +17,12 @@ public class Search {
                 if (entrySlip.getProductList().get(i).getProductId()== ProductCode){
                     searchOfProductResult.add(storeKeeper);
                     searchOfProductResult.add(storeKeeper.getSlipList());
+                    i++;
                 }
             }
         }
         return searchOfProductResult;
-    }*/
+    }
 
 
 }
