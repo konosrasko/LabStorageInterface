@@ -13,15 +13,15 @@ class StoreKeeperTest {
 
     @Test
     void setSlipList() {
-        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
+        s1.addProductList(1, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(2, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(3, ProductCategory.LIFO,"test","kg",2);
 
         st1.addSlip(s1);
 
-        s2.addProductList(4,ProductType.LIFO,"test","kg",2);
-        s2.addProductList(5,ProductType.FIFO,"test","kg",2);
-        s2.addProductList(6,ProductType.FIFO,"test","kg",2);
+        s2.addProductList(4, ProductCategory.LIFO,"test","kg",2);
+        s2.addProductList(5, ProductCategory.FIFO,"test","kg",2);
+        s2.addProductList(6, ProductCategory.FIFO,"test","kg",2);
         st1.addSlip(s2);
 
         st1.setProductList();
@@ -32,15 +32,15 @@ class StoreKeeperTest {
 
     @Test
     void SearchProduct(){
-        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
+        s1.addProductList(1, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(2, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(3, ProductCategory.LIFO,"test","kg",2);
 
         st1.addSlip(s1);
 
-        s2.addProductList(4,ProductType.LIFO,"test","kg",2);
-        s2.addProductList(5,ProductType.FIFO,"test","kg",2);
-        s2.addProductList(6,ProductType.FIFO,"test","kg",2);
+        s2.addProductList(4, ProductCategory.LIFO,"test","kg",2);
+        s2.addProductList(5, ProductCategory.FIFO,"test","kg",2);
+        s2.addProductList(6, ProductCategory.FIFO,"test","kg",2);
         st2.addSlip(s2);
 
 
@@ -55,15 +55,15 @@ class StoreKeeperTest {
         storage1.addSpots(0,0,0,1);
         storage1.addSpots(0,0,0,2);
 
-        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
+        s1.addProductList(1, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(2, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(3, ProductCategory.LIFO,"test","kg",2);
 
         st1.addSlip(s1);
 
-        s2.addProductList(4,ProductType.LIFO,"test","kg",2);
-        s2.addProductList(5,ProductType.FIFO,"test","kg",2);
-        s2.addProductList(6,ProductType.FIFO,"test","kg",2);
+        s2.addProductList(4, ProductCategory.LIFO,"test","kg",2);
+        s2.addProductList(5, ProductCategory.FIFO,"test","kg",2);
+        s2.addProductList(6, ProductCategory.FIFO,"test","kg",2);
         st2.addSlip(s2);
 
 
@@ -73,9 +73,9 @@ class StoreKeeperTest {
 
     @Test
     void assignProduct() {
-        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
+        s1.addProductList(1, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(2, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(3, ProductCategory.LIFO,"test","kg",2);
         storage.addSpots(0,0,0,0);
         storage.addSpots(0,0,0,1);
         storage.addSpots(0,0,0,2);

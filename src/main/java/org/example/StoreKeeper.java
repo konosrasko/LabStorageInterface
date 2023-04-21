@@ -51,7 +51,7 @@ public class StoreKeeper{
 
     public List removeProduct(int pid, List<Spots> spotsList){
         for(Product product : productListAll){
-            if (product.getType()==ProductType.FIFO){
+            if (product.getType()== ProductCategory.FIFO){
                 
                 for(Product product1 : sortedFIFO()) {
                     if (product1.getProductId() == pid) {
@@ -92,14 +92,14 @@ public class StoreKeeper{
 
     public List<Product> sortedFIFO(){
         List<Product> sortedFIFO = productListAll.stream()
-                .filter(product -> product.getType().equals(ProductType.FIFO))
+                .filter(product -> product.getType().equals(ProductCategory.FIFO))
                 .collect(Collectors.toList());
         return sortedFIFO;
     }
 
     public List<Product> sortedLIFO(){
         List<Product> sortedLIFO = productListAll.stream()
-                .filter(product -> product.getType().equals(ProductType.LIFO))
+                .filter(product -> product.getType().equals(ProductCategory.LIFO))
                 .collect(Collectors.toList());
         return sortedLIFO;
     }

@@ -2,8 +2,6 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class StorageTest {
     Storage storage = new Storage();
     Spots spots = new Spots();
@@ -28,9 +26,9 @@ class StorageTest {
 
     @Test
     void assignProduct() {
-        s1.addProductList(1,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(2,ProductType.FIFO,"test","kg",2);
-        s1.addProductList(3,ProductType.LIFO,"test","kg",2);
+        s1.addProductList(1, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(2, ProductCategory.FIFO,"test","kg",2);
+        s1.addProductList(3, ProductCategory.LIFO,"test","kg",2);
 
         st1.addSlip(s1);
         System.out.println(st1);

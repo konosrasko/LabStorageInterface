@@ -1,5 +1,5 @@
 package org.example;
 
-public enum ProductType {
+public enum ProductCategory {
     FIFO,LIFO
 }
