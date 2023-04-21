@@ -1,6 +1,7 @@
 package org.example;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.List;
 
 public class Storage {
     private int storageID;
@@ -31,5 +32,15 @@ public class Storage {
 
     public String getStorageName() {
         return storageName;
+    }
+
+    public int emptySpots(){
+        int s = 0;
+        for (Spots spot : spotsList){
+            if (spot.getProductId()==0){
+                s +=1;
+            }
+        }
+        return s;
     }
 }
