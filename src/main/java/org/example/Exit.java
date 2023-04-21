@@ -16,8 +16,9 @@ public class Exit {
         int i=0;
         for(Spot spot : spotList){
             if (spotList.get(i).getProductId()==pid){
-                exitSlipList.add(spotList.get(i).getProductId());
+                exitSlipList.add(new Exit(spotList.get(i).getProductId(),slipExitDesc));
                 spot.setProductId(0);
+
             }
             i++;
         }
