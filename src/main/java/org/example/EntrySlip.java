@@ -6,9 +6,18 @@ import java.util.List;
 public class EntrySlip {
 
     private List<Product> productList = new ArrayList<>();
-    public EntrySlip(){
+    private String productGeneralType;
+    private int entrySlipCode;
+    private String entrySlipDesc;
+
+    public EntrySlip(int entrySlipCode,String productGeneralType,String entrySlipDesc){
+        this.entrySlipCode=entrySlipCode;
+        this.productGeneralType=productGeneralType;
+        this.entrySlipDesc=entrySlipDesc;
 
     }
+
+    public EntrySlip(){}
 
     public void addProduct(int productId, Enum type, String desc){
         productList.add(new Product(productId,type,desc));

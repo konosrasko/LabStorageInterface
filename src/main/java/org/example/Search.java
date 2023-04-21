@@ -15,7 +15,7 @@ public class Search {
     public List searchOfProduct(int ProductCode){
         List searchOfProductResult = new ArrayList();
         for(StoreKeeper storeKeeper : storeKeepersList){
-            if (storeKeeper.getEntrySlipList
+            if (storeKeeper.
         }
 
         return searchOfProductResult;
