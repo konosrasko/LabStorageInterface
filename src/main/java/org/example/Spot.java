@@ -51,7 +51,4 @@ public class Spot {
         return products;
     }
 
-    public void addProductToSpot(List<Product> products) {
-        this.products = products;
-    }
 }
