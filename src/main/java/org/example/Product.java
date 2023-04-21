@@ -22,17 +22,8 @@ public class Product {
         this.productId = productId;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
-    public Enum getProductCategory() {
-        return type;
-    }
 
     public void setProductCategory(Enum type) {
         this.type = type;
