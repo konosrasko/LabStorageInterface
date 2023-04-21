@@ -10,7 +10,7 @@ public class EntrySlip {
 
     }
 
-    public void addProductList(int productId, Enum type, String desc){
+    public void addProduct(int productId, Enum type, String desc){
         productList.add(new Product(productId,type,desc));
     }
 
