@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StorageTest1 {
     Storage s1 = new Storage();
-    StoreKeeper st1 = new StoreKeeper();
     @Test
     void storage(){
         s1.setStorageName("ena");
@@ -38,13 +37,15 @@ class StorageTest1 {
     void setEntrySlips() {
         s1.setStorageName("ena");
         s1.setStorageID(1);
+        s1.addStoreKeeper(1,"takhs");
         s1.addSpots(0,1,1);
         s1.addSpots(1,1,2);
-        s1.addStoreKeeper(1,"ta");
         EntrySlip eS = new EntrySlip();
         eS.addProduct(1,ProductCategory.FIFO,"Tipo");
         eS.addProduct(2,ProductCategory.FIFO,"Tipo");
         Entry entry = new Entry();
+        StoreKeeper storeKeeper = new StoreKeeper();
+        storeKeeper.addSlip(eS);
         entry.setProductList(eS);
         entry.assignProduct(s1.getSpotsList());
     }
