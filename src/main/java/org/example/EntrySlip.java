@@ -3,15 +3,15 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Slip{
+public class EntrySlip {
 
     private List<Product> productList = new ArrayList<>();
-    public Slip(){
+    public EntrySlip(){
 
     }
 
-    public void addProductList(int productId, Enum type, String desc, String quantityMes, int quantity){
-        productList.add(new Product(productId,type,desc,quantityMes,quantity));
+    public void addProductList(int productId, Enum type, String desc){
+        productList.add(new Product(productId,type,desc));
     }
 
     public List<Product> getProductList() {

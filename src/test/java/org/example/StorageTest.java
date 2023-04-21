@@ -1,13 +1,16 @@
 package org.example;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertEquals;
 
 class StorageTest {
     Storage storage = new Storage();
-    Spots spots = new Spots();
+    Spot spots = new Spot();
 
     StoreKeeper st1 = new StoreKeeper();
-    Slip s1 = new Slip();
+    EntrySlip s1 = new EntrySlip();
 
 
     @Test
@@ -18,30 +21,30 @@ class StorageTest {
 
         st1.addSlip(s1);
         System.out.println(st1);
-        st1.setProductList();
-        storage.addSpots(0,0,0,0);
-        storage.addSpots(0,0,0,1);
-        storage.addSpots(0,0,0,2);
+        //st1.setProductList();
+        storage.addSpots(0,0,0);
+        storage.addSpots(1,0,0);
+        storage.addSpots(2,0,0);
 
     }
 
     @Test
     void emptySpots(){
 
-        s1.addProductList(0,ProductType.LIFO,"test","kilos",10);
+        s1.addProductList(0,ProductCategory.LIFO,"test","kilos",10);
 
 
-        storage.addSpots(0,0,0,1);
-        storage.addSpots(0,0,0,30);
-        storage.addSpots(0,0,0,10);
-        storage.addSpots(0,0,0,20);
-        st1.assignProduct(10,1,storage.getSpotsList());
-        st1.assignProduct(20,2,storage.getSpotsList());
-        st1.assignProduct(30,3,storage.getSpotsList());
-        
+        storage.addSpots(1,0,0);
+        storage.addSpots(30,0,0);
+        storage.addSpots(10,0,0);
+        storage.addSpots(20,0,0);
+//        st1.assignProduct(10,1,storage.getSpotsList());
+//        st1.assignProduct(20,2,storage.getSpotsList());
+//        st1.assignProduct(30,3,storage.getSpotsList());
+//
 
 
-        assertEquals(1,storage.emptySpots());
+        Assert.assertEquals(1,storage.emptySpots());
 
 
     }

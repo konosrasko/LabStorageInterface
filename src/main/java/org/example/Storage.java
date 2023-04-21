@@ -1,28 +1,29 @@
 package org.example;
+import java.nio.file.attribute.AclEntryType;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.List;
 
 public class Storage {
     private int storageID;
     private String storageName;
-    private List<Spots> spotsList = new ArrayList<>();
+    private List<Spot> spotsList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
 
     public void Storage(int storageID, String storageName){
         this.storageID=storageID;
         this.storageName=storageName;
     }
 
-    public void addSpots(int corridor, int shelf, int qnty, int spotID){
-        spotsList.add(new Spots(corridor,shelf,qnty,spotID));
+    public void addSpots(int spotID ,int corridor, int shelf){
+        spotsList.add(new Spot(spotID,corridor,shelf));
     }
 
-    public void addStoreKeeper(int keeperId ,String keeperName){
-        storeKeeperList.add(new StoreKeeper(keeperId,keeperName));
+    public void addStoreKeeper(int employeeId ,String employeeName){
+        storeKeeperList.add(new StoreKeeper(employeeName,employeeId));
     }
 
-    public List<Spots> getSpotsList() {
+    public List<Spot> getSpotsList() {
         return spotsList;
     }
 
@@ -36,11 +37,13 @@ public class Storage {
 
     public int emptySpots(){
         int s = 0;
-        for (Spots spot : spotsList){
+        for (Spot spot : spotsList){
             if (spot.getProductId()==0){
                 s +=1;
             }
         }
         return s;
     }
+
+
 }
