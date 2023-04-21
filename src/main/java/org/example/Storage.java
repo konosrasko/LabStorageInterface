@@ -1,4 +1,5 @@
 package org.example;
+import java.nio.file.attribute.AclEntryType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,18 +8,19 @@ public class Storage {
     private String storageName;
     private List<Spot> spotsList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
 
     public void Storage(int storageID, String storageName){
         this.storageID=storageID;
         this.storageName=storageName;
     }
 
-    public void addSpots(int corridor, int shelf, int qnty, int spotID){
-        spotsList.add(new Spot(corridor,shelf,qnty,spotID));
+    public void addSpots(int spotID ,int corridor, int shelf){
+        spotsList.add(new Spot(spotID,corridor,shelf));
     }
 
-    public void addStoreKeeper(int keeperId ,String keeperName){
-        storeKeeperList.add(new StoreKeeper(keeperId,keeperName));
+    public void addStoreKeeper(int employeeId ,String employeeName){
+        storeKeeperList.add(new StoreKeeper(employeeName,employeeId));
     }
 
     public List<Spot> getSpotsList() {
@@ -42,4 +44,6 @@ public class Storage {
         }
         return s;
     }
+
+
 }

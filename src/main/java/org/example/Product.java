@@ -5,12 +5,10 @@ public class Product {
     private Enum type;
     private String desc, quantityMes;
 
-    public Product(int productId, Enum type, String desc, String quantityMes, int quantity){
+    public Product(int productId, Enum type, String desc){
         this.productId = productId;
         this.type = type;
         this.desc = desc;
-        this.quantityMes = quantityMes;
-        this.quantity = quantity;
     }
 
 
