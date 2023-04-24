@@ -38,4 +38,9 @@ class ExitTest {
 
     }
 
+    @Test
+    void exitTest2(){
+
+    }
+
 }
