@@ -18,9 +18,9 @@ class SearchTest {
         Search search = new Search();
         StoreKeeper storeKeeper = new StoreKeeper();
 
-        entrySlip.addProduct(1,ProductCategory.LIFO,"test");
-        entrySlip.addProduct(2,ProductCategory.LIFO,"test");
-        entrySlip.addProduct(3,ProductCategory.LIFO,"test");
+        entrySlip.addProduct(1,"test",ProductCategory.LIFO,"test");
+        entrySlip.addProduct(2,"test",ProductCategory.LIFO,"test");
+        entrySlip.addProduct(3,"test",ProductCategory.LIFO,"test");
 
 
         storage.addStoreKeeper(1,"test");

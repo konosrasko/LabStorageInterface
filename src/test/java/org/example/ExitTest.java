@@ -33,8 +33,7 @@ class ExitTest {
 
         Exit exit = new Exit(1,"exitTest");
 
-        exit.exitSlip(1,storage.getSpotsList(),entrySlip.getProductList());
-        exit.exitProduct();
+        exit.exitSlip(1,storage.getSpotsList());
         assertEquals(0,storage.getStorageID());
 
     }

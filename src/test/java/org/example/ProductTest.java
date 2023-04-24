@@ -13,11 +13,11 @@ class ProductTest {
         Product product = new Product();
 
 
-        entrySlip1.addProduct(1,ProductCategory.LIFO,"test");
-        entrySlip1.addProduct(2,ProductCategory.LIFO,"test");
+        entrySlip1.addProduct(1,"test",ProductCategory.LIFO,"test");
+        entrySlip1.addProduct(2,"test",ProductCategory.LIFO,"test");
 
-        entrySlip2.addProduct(3,ProductCategory.LIFO,"test");
-        entrySlip2.addProduct(4,ProductCategory.FIFO,"test");
+        entrySlip2.addProduct(3,"test",ProductCategory.LIFO,"test");
+        entrySlip2.addProduct(4,"test",ProductCategory.FIFO,"test");
 
         System.out.println(product.getEntryDate() +"   "+entrySlip1.getEntryDate());
     }
