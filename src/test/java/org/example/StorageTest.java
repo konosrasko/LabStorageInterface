@@ -8,30 +8,6 @@ class StorageTest {
 
     Storage s1 = new Storage();
     @Test
-    void storage(){
-        s1.setStorageName("ena");
-        s1.setStorageID(1);
-
-    }
-
-    @Test
-    void addSpots() {
-        s1.addSpots(1,1,1);
-        s1.addSpots(2,1,2);
-
-    }
-
-    @Test
-    void addStoreKeeper() {
-        s1.addStoreKeeper(1,"ta");
-    }
-
-    @Test
-    void getSpotsList() {
-        s1.getSpotsList();
-    }
-
-    @Test
     void EntryAssign() {
 
 
@@ -73,9 +49,9 @@ class StorageTest {
 
 
             s1.addStoreKeeper(1,"test");
-            s1.addStoreKeeper(1,"test");
-            s1.addStoreKeeper(1,"test");
-            s1.addStoreKeeper(1,"test");
+            s1.addStoreKeeper(2,"test");
+            s1.addStoreKeeper(3,"test");
+            s1.addStoreKeeper(4,"test");
 
             storeKeeper.addSlip(entrySlip);
 
@@ -86,8 +62,17 @@ class StorageTest {
 
             Exit exit = new Exit(1,"exitTest");
 
-            exit.exitSlip(1,s1.getSpotsList());
+            exit.exitSlip(1,s1.getSpotsList(),entrySlip.getProductList());
             assertEquals(0,s1.getStorageID());
 
+            exit.exitSlip(3,s1.getSpotsList(),entrySlip.getProductList());
+
+
         }
+
+        @Test
+        void lifoFifo(){
+
+        }
+
     }
