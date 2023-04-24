@@ -6,7 +6,7 @@ public class Product extends EntrySlip{
     private int productId, quantity;
     private Enum type;
     private String desc, quantityMes;
-    private LocalTime date;
+    private LocalTime productDate;
 
     public Product(){}
 
@@ -15,7 +15,7 @@ public class Product extends EntrySlip{
         this.type = type;
         this.desc = desc;
 
-        this.date = getDate();
+        this.productDate = getEntryDate();
     }
 
 
