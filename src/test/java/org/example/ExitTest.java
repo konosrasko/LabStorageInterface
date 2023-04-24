@@ -19,9 +19,9 @@ class ExitTest {
         Search search = new Search();
         StoreKeeper storeKeeper = new StoreKeeper();
 
-        entrySlip.addProduct(1, ProductCategory.LIFO, "test");
-        entrySlip.addProduct(2, ProductCategory.LIFO, "test");
-        entrySlip.addProduct(3, ProductCategory.LIFO, "test");
+        entrySlip.addProduct(1,"pills", ProductCategory.LIFO, "test");
+        entrySlip.addProduct(2,"pills",  ProductCategory.LIFO, "test");
+        entrySlip.addProduct(3,"pills",  ProductCategory.LIFO, "test");
 
 
         storage.addStoreKeeper(1, "test");
@@ -33,7 +33,8 @@ class ExitTest {
 
         Exit exit = new Exit(1,"exitTest");
 
-        exit.exitSlip(1,storage.getSpotsList());
+        exit.exitSlip(1,storage.getSpotsList(),entrySlip.getProductList());
+        exit.exitProduct();
         assertEquals(0,storage.getStorageID());
 
     }

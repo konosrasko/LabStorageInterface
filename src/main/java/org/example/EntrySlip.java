@@ -26,8 +26,8 @@ public class EntrySlip {
         this.entryDate = LocalTime.now();
     }
 
-    public void addProduct(int productId, Enum type, String desc){
-        productList.add(new Product(productId,type,desc));
+    public void addProduct(int productId,String category, Enum type, String desc){
+        productList.add(new Product(productId,category,type,desc));
     }
 
     public List<Product> getProductList() {
