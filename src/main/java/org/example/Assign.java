@@ -16,11 +16,9 @@ public class Assign {
     }
 
     public List assignProduct(List<Spot> spotList) {
-        int i=0;
         for(Spot spot : spotList) {
                 if (spot.getProductId() == 0) {
-                    spot.setProductId(products.get(i).getProductId());
-                    i++;
+                    spot.setProductId(spot.getProductId());
                 }
         }
         products.clear();

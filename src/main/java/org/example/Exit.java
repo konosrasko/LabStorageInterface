@@ -6,18 +6,20 @@ import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.example.ProductCategory.FIFO;
+
 
 public class Exit {
-    private int ExitSlip;
-    private String ExitDesc;
-    private LocalTime exitDate;
-    private List<Exit> exitSlipList = new ArrayList();
+    private int exitSlipId;
+    private String exitSlipDesc;
+    private LocalTime exitSlipDate;
+    private List exitSlipList = new ArrayList();
 
-    public Exit(int ExitSlip, String ExitDesc){
-        this.ExitSlip=ExitSlip;
-        this.ExitDesc=ExitDesc;
-        this.exitDate = LocalTime.now();
+    public Exit(){}
+
+    public Exit(int ExitSlipId, String exitSlipDesc){
+        this.exitSlipId = ExitSlipId;
+        this.exitSlipDesc = exitSlipDesc;
+        this.exitSlipDate = LocalTime.now();
     }
 
     public List exitSlip(int pid, @NotNull List<Spot> spotList, @NotNull List<Product> productList){
@@ -29,7 +31,7 @@ public class Exit {
 
 
 
-            if (productList.get(pid).getProductGeneralType().equals(FIFO)){
+            if (productList.get(pid).getType().equals(ProductCategory.FIFO)){
 
                 productList.stream()
                         .filter(product -> product.getCategory().equals(category))
@@ -39,7 +41,7 @@ public class Exit {
                 for (Spot spot: spotList){
                     if (spot.getProductId() == pid){
                         productList.remove(productList.get(pid).getProductId());
-                        exitSlipList.add(new Exit(spot.getProductId(),ExitDesc));
+                        exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
                         spot.setProductId(0);
                     }
                 }
@@ -53,9 +55,9 @@ public class Exit {
 
                 for (Spot spot: spotList){
                     if (spot.getProductId() == pid){
-                        productList.remove(productList.get(pid).getProductId());
-                        exitSlipList.add(new Exit(spot.getProductId(),ExitDesc));
+                        exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
                         spot.setProductId(0);
+                        productList.remove(productList.get(pid).getProductId());
                     }
                 }
             }
@@ -64,9 +66,12 @@ public class Exit {
         return exitSlipList;
     }
 
+    public List<Exit> getExitSlipList() {
+        return exitSlipList;
+    }
 
-    public LocalTime getExitDate() {
-        return exitDate;
+    public LocalTime getExitSlipDate() {
+        return exitSlipDate;
     }
 
 

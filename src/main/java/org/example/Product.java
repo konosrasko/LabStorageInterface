@@ -43,6 +43,10 @@ public class Product extends EntrySlip{
         this.type = type;
     }
 
+    public Enum getType() {
+        return type;
+    }
+
     public String getDesc() {
         return desc;
     }

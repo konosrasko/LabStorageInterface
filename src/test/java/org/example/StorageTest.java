@@ -47,6 +47,12 @@ class StorageTest {
             entrySlip.addProduct(2,"test",ProductCategory.LIFO,"test");
             entrySlip.addProduct(3,"test",ProductCategory.LIFO,"test");
 
+            storeKeeper.addSlip(entrySlip);
+
+            Assign assign = new Assign();
+            assign.assignProduct(s1.getSpotsList());
+            assign.setProductList(entrySlip);
+
 
             s1.addStoreKeeper(1,"test");
             s1.addStoreKeeper(2,"test");
@@ -60,19 +66,15 @@ class StorageTest {
 
 
 
-            Exit exit = new Exit(1,"exitTest");
+            Exit exit = new Exit();
 
             exit.exitSlip(1,s1.getSpotsList(),entrySlip.getProductList());
+
             assertEquals(0,s1.getStorageID());
 
-            exit.exitSlip(3,s1.getSpotsList(),entrySlip.getProductList());
-
-
-        }
-
-        @Test
-        void lifoFifo(){
+            exit.exitSlip(2,s1.getSpotsList(),entrySlip.getProductList());
+            System.out.println(exit.getExitSlipList().toString());
+            assertEquals(1,exit.getExitSlipList().size());
 
         }
-
     }
