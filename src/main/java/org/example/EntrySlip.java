@@ -14,18 +14,18 @@ public class EntrySlip {
     private String productGeneralType;
     private int entrySlipCode;
     private String entrySlipDesc;
-    private LocalTime date;
+    private LocalTime entryDate;
     private List<Product> productList = new ArrayList<>();
 
     public EntrySlip(int entrySlipCode,String productGeneralType,String entrySlipDesc){
         this.entrySlipCode=entrySlipCode;
         this.productGeneralType=productGeneralType;
         this.entrySlipDesc=entrySlipDesc;
-        this.date = LocalTime.now();
+        this.entryDate = LocalTime.now();
     }
 
     public EntrySlip(){
-        this.date = LocalTime.now();
+        this.entryDate = LocalTime.now();
     }
 
     public void addProduct(int productId,String category, Enum type, String desc){
@@ -48,7 +48,7 @@ public class EntrySlip {
         return entrySlipDesc;
     }
 
-    public LocalTime getDate() {
-        return date;
+    public LocalTime getEntryDate() {
+        return entryDate;
     }
 }

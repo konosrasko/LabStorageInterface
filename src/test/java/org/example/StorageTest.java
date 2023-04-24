@@ -38,11 +38,11 @@ class StorageTest {
         EntrySlip eS = new EntrySlip();
         eS.addProduct(1,ProductCategory.FIFO,"Tipo");
         eS.addProduct(2,ProductCategory.FIFO,"Tipo");
-        Entry entry = new Entry();
+        Assign assign = new Assign();
         StoreKeeper storeKeeper = new StoreKeeper();
         storeKeeper.addSlip(eS);
-        entry.setProductList(eS);
-        entry.assignProduct(s1.getSpotsList());
+        assign.setProductList(eS);
+        assign.assignProduct(s1.getSpotsList());
     }
 
     @Test
