@@ -9,8 +9,6 @@ public class Entry {
     }
 
 
-
-
     public void setProductList(EntrySlip slip) {
         for (Product product : slip.getProductList() ) {
                 products.add(product);
