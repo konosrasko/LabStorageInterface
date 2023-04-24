@@ -10,7 +10,7 @@ public class Product extends EntrySlip{
 
     public Product(){}
 
-    public Product(int productId, Enum type, String desc){
+    public Product(int productId, String category, Enum type, String desc){
         this.productId = productId;
         this.category = category;
         this.type = type;
@@ -20,7 +20,9 @@ public class Product extends EntrySlip{
     }
 
 
-
+    public LocalTime getProductDate() {
+        return productDate;
+    }
 
     public int getProductId() {
         return productId;
@@ -32,6 +34,10 @@ public class Product extends EntrySlip{
 
 
 
+
+    public String getCategory() {
+        return category;
+    }
 
     public void setProductCategory(Enum type) {
         this.type = type;

@@ -3,10 +3,7 @@ package org.example;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static org.example.ProductCategory.FIFO;
 
@@ -25,6 +22,13 @@ public class Exit {
     public List exitSlip(int pid, @NotNull List<Spot> spotList, @NotNull List<Product> productList){
 
         if (productList.get(pid).getProductGeneralType().equals(FIFO)){
+
+
+            String category = productList.get(pid).getCategory();
+            String type = productList.get(pid).getProductGeneralType();
+            Collections.sort(, Comparator.comparing(Date::getDate));
+
+
 
             for(Spot spot : spotList){
                 if (spot.getProductId()==pid){
