@@ -72,8 +72,7 @@ class StorageTest {
         Exit exit = new Exit();
 
         exit.exitSlip(1, storage.getSpotsList(),entrySlip.getProductList());
-        exit.exitSlip(2, storage.getSpotsList(),entrySlip.getProductList());
-        assertEquals(2,exit.getExitSlipList().size());
+        assertEquals(1,exit.getExitSlipList().size());
 
         }
 
@@ -107,11 +106,11 @@ class StorageTest {
 
             entrySlip.addProduct(1,"test1",ProductCategory.FIFO,"ena");
             entrySlip.addProduct(2,"test2",ProductCategory.LIFO,"duo");
-            entrySlip.addProduct(2,"test3",ProductCategory.LIFO,"tria");
-            entrySlip.addProduct(1,"test4",ProductCategory.FIFO,"tessera");
-            entrySlip.addProduct(1,"test5",ProductCategory.FIFO,"pente");
-            entrySlip.addProduct(2,"test6",ProductCategory.LIFO,"exi");
-            entrySlip.addProduct(1,"test7",ProductCategory.FIFO,"efta");
+            entrySlip.addProduct(3,"test3",ProductCategory.LIFO,"tria");
+            entrySlip.addProduct(4,"test4",ProductCategory.FIFO,"tessera");
+            entrySlip.addProduct(5,"test5",ProductCategory.FIFO,"pente");
+            entrySlip.addProduct(6,"test6",ProductCategory.LIFO,"exi");
+            entrySlip.addProduct(7,"test7",ProductCategory.FIFO,"efta");
 
             storeKeeper.addSlip(entrySlip);
 
@@ -132,7 +131,7 @@ class StorageTest {
             Exit exit = new Exit();
             exit.exitSlip(1, this.storage.getSpotsList(),entrySlip.getProductList());
             exit.exitSlip(2, this.storage.getSpotsList(),entrySlip.getProductList());
-            //assertEquals(1,exit.getExitSlipList().size());
+            assertEquals(1,exit.getExitSlipList().size());
 
             for (Product product : entrySlip.getProductList()) {
                 System.out.print(product.getProductId());

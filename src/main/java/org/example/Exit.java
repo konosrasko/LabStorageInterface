@@ -1,12 +1,14 @@
 package org.example;
 
+import jdk.jfr.Category;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalTime;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toList;
 
 
 public class Exit {
@@ -26,43 +28,38 @@ public class Exit {
     public List exitSlip(int pid, @NotNull List<Spot> spotList, @NotNull List<Product> productList){
 
 
-        String category = productList.get(pid).getCategory();
-//        String type = productList.get(pid).getProductGeneralType();
-//        Collections.sort(productList,Comparator.comparing(Product::getProductDate));
+        if (productList.get(pid).getType().equals(ProductCategory.FIFO)){
+            List<Product> pr = productList.stream()
+                    .sorted(Comparator.comparing(Product::getCategory))
+                    .collect(Collectors.toList());
 
 
-
-            if (productList.get(pid).getType().equals(ProductCategory.FIFO)){
-
-
-
-
-
-                for (Spot spot: spotList){
-                    if (spot.getProductId() == pid){
-                        productList.remove(0);
-                        exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
-                        spot.setProductId(0);
-                        break;
-                    }
-                }
-
-
-            }else {
-                productList.stream()
-                        .filter(product -> product.getCategory().equals(category))
-                        .sorted(Comparator.comparing(Product::getProductDate))
-                        .collect(Collectors.toList());
-
-                for (Spot spot: spotList){
-                    if (spot.getProductId() == pid){
-                        productList.remove(0);
-                        exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
-                        spot.setProductId(0);
-                        break;
-                    }
+            for (Spot spot: spotList){
+                if (spot.getProductId() == pid){
+                    int index = pr.indexOf(pr.get(pid));
+                    productList.remove(index);
+                    exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
+                    spot.setProductId(0);
+                    break;
                 }
             }
+
+
+        }else {
+
+            for (Spot spot: spotList){
+                if (spot.getProductId() == pid){
+                    List<Product> pr = productList.stream()
+                            .sorted(Comparator.comparing(Product::getCategory))
+                            .collect(Collectors.toList());
+                    int index = pr.indexOf(pr.get(pid));
+                    productList.remove(index);
+                    exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
+                    spot.setProductId(0);
+                    break;
+                }
+            }
+        }
 
 
         return spotList;
