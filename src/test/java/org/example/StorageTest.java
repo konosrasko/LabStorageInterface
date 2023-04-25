@@ -128,7 +128,7 @@ class StorageTest {
             search.searchOfProduct(6, this.storage.getStoreKeeperList(),storeKeeper.getSlipList());
             assertEquals("ena",search.searchOfProduct(1, this.storage.getStoreKeeperList(),storeKeeper.getSlipList()));
 
-
+             entrySlip.print();
             Exit exit = new Exit();
             exit.exitSlip(1, this.storage.getSpotsList(),entrySlip.getProductList());
             exit.exitSlip(2, this.storage.getSpotsList(),entrySlip.getProductList());

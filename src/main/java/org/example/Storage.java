@@ -11,12 +11,6 @@ public class Storage {
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
     private List<EntrySlip> entrySlips = new ArrayList<>();
 
-/*   private Map<Spot,Product> spMap = new HashMap<>();
-
-    public void setSpMap(Map<Spot, Product> spMap) {
-        this.spMap = spMap;
-    }
-*/
 
     public void Storage(int storageID, String storageName){
         this.storageID=storageID;
