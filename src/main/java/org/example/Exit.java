@@ -1,14 +1,13 @@
 package org.example;
 
-import jdk.jfr.Category;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
+
 
 
 public class Exit {
@@ -28,7 +27,7 @@ public class Exit {
     public List exitSlip(int pid, @NotNull List<Spot> spotList, @NotNull List<Product> productList){
 
 
-        if (productList.get(pid).getType().equals(ProductCategory.FIFO)){
+        if (productList.get(pid).getProductCategory().equals(ProductCategory.FIFO)){
             List<Product> pr = productList.stream()
                     .sorted(Comparator.comparing(Product::getCategory))
                     .collect(Collectors.toList());
