@@ -9,6 +9,8 @@ public class StoreKeeper {
     private int keeperId;
     private List<EntrySlip> entrySlipList = new ArrayList<>();
 
+
+
     public StoreKeeper(){
 
     }
