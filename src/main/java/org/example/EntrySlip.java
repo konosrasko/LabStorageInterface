@@ -55,7 +55,7 @@ public class EntrySlip {
 
     public List print() {
         List<Product> pr = productList.stream()
-                .filter(product -> product.getProductGeneralType().equals(ProductCategory.FIFO) || equals(ProductCategory.LIFO))
+                .sorted(Comparator.comparing(Product::getCategory))
                 .collect(Collectors.toList());
         return pr;
     }
