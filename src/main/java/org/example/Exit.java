@@ -1,8 +1,5 @@
 package org.example;
-
-
 import org.jetbrains.annotations.NotNull;
-
 import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -15,6 +12,8 @@ public class Exit {
     private String exitSlipDesc;
     private LocalTime exitSlipDate;
     private List exitSlipList = new ArrayList();
+
+
 
     public Exit(){}
 

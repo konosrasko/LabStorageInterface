@@ -1,5 +1,4 @@
 package org.example;
-
 import java.time.LocalTime;
 
 public class Product extends EntrySlip{
@@ -7,6 +6,8 @@ public class Product extends EntrySlip{
     private Enum productCategory;
     private String desc, quantityMes, category;
     private LocalTime productDate;
+
+
 
     public Product(){}
 
@@ -31,9 +32,6 @@ public class Product extends EntrySlip{
     public void setProductId(int productId) {
         this.productId = productId;
     }
-
-
-
 
     public String getCategory() {
         return category;
