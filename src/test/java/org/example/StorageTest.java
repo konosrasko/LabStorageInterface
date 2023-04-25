@@ -131,7 +131,7 @@ class StorageTest {
             Exit exit = new Exit();
             exit.exitSlip(1, this.storage.getSpotsList(),entrySlip.getProductList());
             exit.exitSlip(2, this.storage.getSpotsList(),entrySlip.getProductList());
-            assertEquals(1,exit.getExitSlipList().size());
+            assertEquals(2,exit.getExitSlipList().size());
 
             for (Product product : entrySlip.getProductList()) {
                 System.out.print(product.getProductId());
