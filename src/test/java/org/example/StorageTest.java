@@ -6,16 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StorageTest {
 
-    Storage s1 = new Storage();
+    Storage storage = new Storage();
     @Test
     void EntryAssign() {
 
 
-        s1.setStorageName("ena");
-        s1.setStorageID(1);
-        s1.addStoreKeeper(1,"takhs");
-        s1.addSpots(0,1,1);
-        s1.addSpots(1,1,2);
+        storage.setStorageName("ena");
+        storage.setStorageID(1);
+        storage.addStoreKeeper(1,"takhs");
+        storage.addSpots(0,1,1);
+        storage.addSpots(1,1,2);
 
         EntrySlip eS = new EntrySlip();
         eS.addProduct(1,"τεστ",ProductCategory.FIFO,"Tipo");
@@ -26,55 +26,117 @@ class StorageTest {
         StoreKeeper storeKeeper = new StoreKeeper();
         storeKeeper.addSlip(eS);
         assign.setProductList(eS);
-        assign.assignProduct(s1.getSpotsList());
-        assertEquals(assign.assignProduct(s1.getSpotsList()).size(),2);
+        assign.assignProduct(storage.getSpotsList());
+        assertEquals(assign.assignProduct(storage.getSpotsList()).size(),2);
 
     }
 
     @Test
     void searchExit(){
+            storage.setStorageName("ena");
+            storage.setStorageID(1);
 
-            s1.addSpots(1,2,3);
-            s1.addSpots(2,2,3);
-            s1.addSpots(3,2,3);
-            s1.addSpots(4,2,3);
+            storage.addSpots(1,2,3);
+            storage.addSpots(2,2,3);
+            storage.addSpots(3,2,3);
+            storage.addSpots(4,2,3);
 
-            EntrySlip entrySlip = new EntrySlip();
-            Search search = new Search();
-            StoreKeeper storeKeeper = new StoreKeeper();
+        StoreKeeper storeKeeper = new StoreKeeper();
+        EntrySlip entrySlip = new EntrySlip();
+        Search search = new Search();
 
-            entrySlip.addProduct(1,"test",ProductCategory.LIFO,"test");
-            entrySlip.addProduct(2,"test",ProductCategory.LIFO,"test");
-            entrySlip.addProduct(3,"test",ProductCategory.LIFO,"test");
+        entrySlip.addProduct(1,"test",ProductCategory.LIFO,"test");
+        entrySlip.addProduct(2,"test",ProductCategory.LIFO,"test");
+        entrySlip.addProduct(3,"test",ProductCategory.LIFO,"test");
 
-            storeKeeper.addSlip(entrySlip);
+        storeKeeper.addSlip(entrySlip);
 
             Assign assign = new Assign();
-            assign.assignProduct(s1.getSpotsList());
-            assign.setProductList(entrySlip);
+        assign.setProductList(entrySlip);
+        assign.assignProduct(storage.getSpotsList());
 
 
-            s1.addStoreKeeper(1,"test");
-            s1.addStoreKeeper(2,"test");
-            s1.addStoreKeeper(3,"test");
-            s1.addStoreKeeper(4,"test");
+            storage.addStoreKeeper(1,"test");
+            storage.addStoreKeeper(2,"test");
+            storage.addStoreKeeper(3,"test");
+            storage.addStoreKeeper(4,"test");
 
             storeKeeper.addSlip(entrySlip);
 
-            search.searchOfProduct(1,s1.getStoreKeeperList(),storeKeeper.getSlipList());
-            assertEquals("test",search.searchOfProduct(1,s1.getStoreKeeperList(),storeKeeper.getSlipList()));
+            search.searchOfProduct(1, storage.getStoreKeeperList(),storeKeeper.getSlipList());
+            assertEquals("test",search.searchOfProduct(1, storage.getStoreKeeperList(),storeKeeper.getSlipList()));
 
+
+
+        assertEquals(1, storage.getStorageID());
+        Exit exit = new Exit();
+
+        exit.exitSlip(1, storage.getSpotsList(),entrySlip.getProductList());
+        exit.exitSlip(2, storage.getSpotsList(),entrySlip.getProductList());
+        assertEquals(2,exit.getExitSlipList().size());
+
+        }
+
+
+
+
+        @Test
+    void allaround(){
+            Storage storage = new Storage();
+
+            this.storage.setStorageName("ena");
+            this.storage.setStorageID(1);
+
+
+            StoreKeeper storeKeeper = new StoreKeeper();
+
+            this.storage.addStoreKeeper(1,"ena");
+
+
+            this.storage.addSpots(1,2,3);
+            this.storage.addSpots(2,2,3);
+            this.storage.addSpots(3,2,3);
+            this.storage.addSpots(4,2,3);
+            this.storage.addSpots(5,1,2);
+            this.storage.addSpots(6,1,2);
+            this.storage.addSpots(7,1,2);
+            this.storage.addSpots(8,1,2);
+            this.storage.addSpots(9,1,2);
+
+            EntrySlip entrySlip = new EntrySlip();
+
+            entrySlip.addProduct(1,"test1",ProductCategory.FIFO,"ena");
+            entrySlip.addProduct(2,"test2",ProductCategory.LIFO,"duo");
+            entrySlip.addProduct(2,"test3",ProductCategory.LIFO,"tria");
+            entrySlip.addProduct(1,"test4",ProductCategory.FIFO,"tessera");
+            entrySlip.addProduct(1,"test5",ProductCategory.FIFO,"pente");
+            entrySlip.addProduct(2,"test6",ProductCategory.LIFO,"exi");
+            entrySlip.addProduct(1,"test7",ProductCategory.FIFO,"efta");
+
+            storeKeeper.addSlip(entrySlip);
+
+
+
+            Assign assign = new Assign();
+
+            assign.setProductList(entrySlip);
+            assign.assignProduct(this.storage.getSpotsList());
+
+
+            //Search
+            Search search = new Search();
+            search.searchOfProduct(6, this.storage.getStoreKeeperList(),storeKeeper.getSlipList());
+            assertEquals("ena",search.searchOfProduct(1, this.storage.getStoreKeeperList(),storeKeeper.getSlipList()));
 
 
             Exit exit = new Exit();
+            exit.exitSlip(1, this.storage.getSpotsList(),entrySlip.getProductList());
+            exit.exitSlip(2, this.storage.getSpotsList(),entrySlip.getProductList());
+            //assertEquals(1,exit.getExitSlipList().size());
 
-            exit.exitSlip(1,s1.getSpotsList(),entrySlip.getProductList());
-
-            assertEquals(0,s1.getStorageID());
-
-            exit.exitSlip(2,s1.getSpotsList(),entrySlip.getProductList());
-            System.out.println(exit.getExitSlipList().toString());
-            assertEquals(1,exit.getExitSlipList().size());
-
+            for (Product product : entrySlip.getProductList()) {
+                System.out.print(product.getProductId());
+                System.out.println(product.getCategory());
+                }
+            }
         }
-    }

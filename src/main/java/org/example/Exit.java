@@ -16,8 +16,8 @@ public class Exit {
 
     public Exit(){}
 
-    public Exit(int ExitSlipId, String exitSlipDesc){
-        this.exitSlipId = ExitSlipId;
+    public Exit(int exitSlipId, String exitSlipDesc){
+        this.exitSlipId = exitSlipId;
         this.exitSlipDesc = exitSlipDesc;
         this.exitSlipDate = LocalTime.now();
     }
@@ -33,16 +33,17 @@ public class Exit {
 
             if (productList.get(pid).getType().equals(ProductCategory.FIFO)){
 
-                productList.stream()
-                        .filter(product -> product.getCategory().equals(category))
-                        .sorted(Comparator.comparing(Product::getProductDate).reversed())
+                List<Product> filteredProd = productList.stream()
+                        .filter((productList product) ->{
+                                return product}
                         .collect(Collectors.toList());
 
                 for (Spot spot: spotList){
                     if (spot.getProductId() == pid){
-                        productList.remove(productList.get(pid).getProductId());
+                        productList.remove(0);
                         exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
                         spot.setProductId(0);
+                        break;
                     }
                 }
 
@@ -55,15 +56,16 @@ public class Exit {
 
                 for (Spot spot: spotList){
                     if (spot.getProductId() == pid){
+                        productList.remove(0);
                         exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
                         spot.setProductId(0);
-                        productList.remove(productList.get(pid).getProductId());
+                        break;
                     }
                 }
             }
 
 
-        return exitSlipList;
+        return spotList;
     }
 
     public List<Exit> getExitSlipList() {

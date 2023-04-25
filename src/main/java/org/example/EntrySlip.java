@@ -5,7 +5,9 @@ import com.google.inject.internal.cglib.core.Local;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EntrySlip {
 
@@ -48,5 +50,13 @@ public class EntrySlip {
 
     public LocalTime getEntryDate() {
         return entryDate;
+    }
+
+
+    public List print() {
+        List<Product> pr = productList.stream()
+                .filter(product -> product.getProductGeneralType().equals(ProductCategory.FIFO) || equals(ProductCategory.LIFO))
+                .collect(Collectors.toList());
+        return pr;
     }
 }
