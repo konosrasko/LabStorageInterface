@@ -30,7 +30,7 @@ public class Exit {
 
             if (productList.get(pid).getType().equals(ProductCategory.FIFO)){
                 List<Product> pr = productList.stream()
-                        .sorted(Comparator.comparing(Product::getCategory).reversed())
+                        .sorted(Comparator.comparing(Product::getCategory))
                         .collect(Collectors.toList());
 
 
@@ -53,7 +53,7 @@ public class Exit {
                                 .sorted(Comparator.comparing(Product::getCategory))
                                 .collect(Collectors.toList());
                         int index = pr.indexOf(pr.get(pid));
-                        productList.remove(0);
+                        productList.remove(index);
                         exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
                         spot.setProductId(0);
                         break;

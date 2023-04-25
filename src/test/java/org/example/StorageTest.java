@@ -82,6 +82,7 @@ class StorageTest {
 
         @Test
     void allaround(){
+            Storage storage = new Storage();
 
             this.storage.setStorageName("ena");
             this.storage.setStorageID(1);
@@ -106,11 +107,11 @@ class StorageTest {
 
             entrySlip.addProduct(1,"test1",ProductCategory.FIFO,"ena");
             entrySlip.addProduct(2,"test2",ProductCategory.LIFO,"duo");
-            entrySlip.addProduct(3,"test2",ProductCategory.LIFO,"tria");
-            entrySlip.addProduct(4,"test1",ProductCategory.FIFO,"tessera");
-            entrySlip.addProduct(5,"test1",ProductCategory.FIFO,"pente");
-            entrySlip.addProduct(6,"test2",ProductCategory.LIFO,"exi");
-            entrySlip.addProduct(7,"test1",ProductCategory.FIFO,"efta");
+            entrySlip.addProduct(2,"test3",ProductCategory.LIFO,"tria");
+            entrySlip.addProduct(1,"test4",ProductCategory.FIFO,"tessera");
+            entrySlip.addProduct(1,"test5",ProductCategory.FIFO,"pente");
+            entrySlip.addProduct(2,"test6",ProductCategory.LIFO,"exi");
+            entrySlip.addProduct(1,"test7",ProductCategory.FIFO,"efta");
 
             storeKeeper.addSlip(entrySlip);
 
@@ -130,11 +131,11 @@ class StorageTest {
              entrySlip.print();
             Exit exit = new Exit();
             exit.exitSlip(1, this.storage.getSpotsList(),entrySlip.getProductList());
-            //exit.exitSlip(2, this.storage.getSpotsList(),entrySlip.getProductList());
+            exit.exitSlip(2, this.storage.getSpotsList(),entrySlip.getProductList());
             //assertEquals(1,exit.getExitSlipList().size());
 
             for (Product product : entrySlip.getProductList()) {
-                System.out.print(product.getProductId()+ " ");
+                System.out.print(product.getProductId());
                 System.out.println(product.getCategory());
                 }
             }
