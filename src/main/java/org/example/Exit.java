@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalTime;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
@@ -33,10 +34,9 @@ public class Exit {
 
             if (productList.get(pid).getType().equals(ProductCategory.FIFO)){
 
-                List<Product> filteredProd = productList.stream()
-                        .filter((productList product) ->{
-                                return product}
-                        .collect(Collectors.toList());
+
+
+
 
                 for (Spot spot: spotList){
                     if (spot.getProductId() == pid){
