@@ -30,8 +30,8 @@ class SearchTest {
 
         storeKeeper.addSlip(entrySlip);
 
-        search.searchOfProduct(1,storage.getStoreKeeperList(),storeKeeper.getSlipList());
-        assertEquals("test",search.searchOfProduct(1,storage.getStoreKeeperList(),storeKeeper.getSlipList()));
+        search.searchOfProduct(1,storage.getStoreKeeperList(),storeKeeper.getEntrySlipList());
+        assertEquals("test",search.searchOfProduct(1,storage.getStoreKeeperList(),storeKeeper.getEntrySlipList()));
 
     }
 

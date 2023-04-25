@@ -7,7 +7,7 @@ import java.util.List;
 public class StoreKeeper {
     private String keeperName;
     private int keeperId;
-    private List<EntrySlip> slipList = new ArrayList<>();
+    private List<EntrySlip> entrySlipList = new ArrayList<>();
 
     public StoreKeeper(){
 
@@ -20,11 +20,11 @@ public class StoreKeeper {
 
 
     public void addSlip(EntrySlip slip){
-        this.slipList.add(slip);
+        this.entrySlipList.add(slip);
     }
 
-    public List<EntrySlip> getSlipList() {
-        return slipList;
+    public List<EntrySlip> getEntrySlipList() {
+        return entrySlipList;
     }
 
     public String getKeeperName() {
