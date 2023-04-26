@@ -7,7 +7,6 @@ public class Spot {
     private int spotID, productId;
     private int corridor;
     private int shelf;
-    private List<Product> products = new ArrayList<>();
 
     public Spot(){}
 
@@ -18,24 +17,8 @@ public class Spot {
         this.shelf = shelf;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
     public void setProductId(int productId) {
         this.productId = productId;
-    }
-
-    public void setSpotID(int spotID) {
-        this.spotID = spotID;
-    }
-
-    public void setCorridor(int corridor) {
-        this.corridor = corridor;
-    }
-
-    public void setShelf(int shelf) {
-        this.shelf = shelf;
     }
 
     public int getSpotID() {

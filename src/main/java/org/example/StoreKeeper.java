@@ -21,10 +21,6 @@ public class StoreKeeper {
     }
 
 
-    public void addSlip(EntrySlip slip){
-        this.entrySlipList.add(slip);
-    }
-
     public List<EntrySlip> getEntrySlipList() {
         return entrySlipList;
     }
@@ -35,10 +31,5 @@ public class StoreKeeper {
 
     public int getKeeperId() {
         return keeperId;
-    }
-
-
-    public void setEntrySlipList(List<EntrySlip> entrySlipList) {
-        this.entrySlipList = entrySlipList;
     }
 }

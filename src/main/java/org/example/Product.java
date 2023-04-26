@@ -1,11 +1,11 @@
 package org.example;
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class Product extends EntrySlip{
-    private int productId, quantity;
+    private int productId;
     private Enum productCategory;
     private String desc, quantityMes, category;
-    private LocalTime productDate;
+    private LocalDate productDate;
 
 
 
@@ -16,48 +16,27 @@ public class Product extends EntrySlip{
         this.category = category;
         this.productCategory = productCategory;
         this.desc = desc;
-
+        this.productDate = LocalDate.now();
     }
 
 
-    public LocalTime getProductDate() {
+    public LocalDate getProductDate() {
         return productDate;
     }
-
     public int getProductId() {
         return productId;
     }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
     public String getCategory() {
         return category;
     }
-
-    public void setProductCategory(Enum type) {
-        this.productCategory = type;
-    }
-
     public Enum getProductCategory() {
         return productCategory;
     }
-
     public String getDesc() {
         return desc;
     }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
     public String getQuantityMes() {
         return quantityMes;
-    }
-
-    public void setQuantityMes(String quantityMes) {
-        this.quantityMes = quantityMes;
     }
 
 }
