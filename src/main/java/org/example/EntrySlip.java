@@ -8,10 +8,10 @@ import java.util.List;
 
 public class EntrySlip{
 
-    private int productGeneralType;
+    private int generalId;
     private String entrySlipDesc;
     private int slipId;
-    private Enum type;
+    private Enum productCategory;
     private LocalDate localDate;
     private List<Product> productList = new ArrayList<>();
 
@@ -20,10 +20,10 @@ public class EntrySlip{
 
     }
 
-    public EntrySlip(int slipId,Enum type,int productGeneralType, String desc){
+    public EntrySlip(int slipId, Enum productCategory, int generalId, String desc){
         this.slipId = slipId;
-        this.type = type;
-        this.productGeneralType = productGeneralType;
+        this.productCategory = productCategory;
+        this.generalId = generalId;
         this.entrySlipDesc = desc;
         this.localDate = LocalDate.now();
     }
@@ -41,8 +41,8 @@ public class EntrySlip{
         return slipId;
     }
 
-    public int getProductGeneralType() {
-        return productGeneralType;
+    public int getGeneralId() {
+        return generalId;
     }
 
     public LocalDate getLocalDate() {
