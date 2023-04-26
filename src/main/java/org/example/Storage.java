@@ -105,7 +105,7 @@ public class Storage implements  StorageServices{
         Exit exit = new Exit(exitSlipId,generalId,quantity);
         List<Product> srtd = productList.stream()
                 .sorted(Comparator.comparing(Product::getProductDate))
-                .toList();
+                .collect(Collectors.toList());
         for (Spot spot : spotList){
             while(quantity>0){
 
