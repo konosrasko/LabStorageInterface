@@ -112,11 +112,13 @@ public class Storage implements  StorageServices{
                 for (Product product : srtd ){
                     if (product.getProductGeneralType() == generalId){
                     spot.setProductId(0);
+                    //+ lista gia ektypwsh
                     srtd.remove(product);
                     quantity--;
                     break;
                     }
                 }
+                break;
             }
         }
     }

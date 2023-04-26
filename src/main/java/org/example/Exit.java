@@ -25,51 +25,6 @@ public class Exit {
         this.productCategory = productCategory;
         this.quantity = quantity;
     }
-/*
-    public List exitSlip(int pid, @NotNull List<Spot> spotList, @NotNull List<Product> productList){
-
-
-        if (productList.get(pid).getProductCategory().equals(ProductCategory.FIFO)){
-            List<Product> pr = productList.stream()
-                    .sorted(Comparator.comparing(Product::getCategory))
-                    .collect(Collectors.toList());
-
-
-            for (Spot spot: spotList){
-                if (spot.getProductId() == pid){
-                    int index = pr.indexOf(pr.get(pid));
-                    productList.remove(index);
-                    exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
-                    spot.setProductId(0);
-                    break;
-                }
-            }
-
-
-        }else {
-
-            for (Spot spot: spotList){
-                if (spot.getProductId() == pid){
-                    List<Product> pr = productList.stream()
-                            .sorted(Comparator.comparing(Product::getCategory))
-                            .collect(Collectors.toList());
-                    int index = pr.indexOf(pr.get(pid));
-                    productList.remove(index);
-                    exitSlipList.add(new Exit(spot.getProductId(), exitSlipDesc));
-                    spot.setProductId(0);
-                    break;
-                }
-            }
-        }
-
-
-        return spotList;
-    }
-*/
-
-
-
-
     public List<Exit> getExitSlipList() {
         return exitSlipList;
     }
