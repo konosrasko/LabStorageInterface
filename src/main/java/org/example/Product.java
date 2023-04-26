@@ -4,14 +4,15 @@ import java.time.LocalDate;
 public class Product extends EntrySlip{
     private int productId;
     private Enum productCategory;
-    private String desc, quantityMes, category;
+    private String desc, quantityMes;
+    private int category;
     private LocalDate productDate;
 
 
 
     public Product(){}
 
-    public Product(int productId, String category, Enum productCategory, String desc){
+    public Product(int productId, int category, Enum productCategory, String desc){
         this.productId = productId;
         this.category = category;
         this.productCategory = productCategory;
@@ -26,7 +27,7 @@ public class Product extends EntrySlip{
     public int getProductId() {
         return productId;
     }
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
     public Enum getProductCategory() {
