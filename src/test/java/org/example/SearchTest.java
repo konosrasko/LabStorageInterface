@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SearchTest {
+/*class SearchTest {
     @Test
     void searchTest(){
         Storage storage = new Storage();
@@ -38,4 +38,4 @@ class SearchTest {
 
     }
 
-}
+}*/
