@@ -102,24 +102,48 @@ public class Storage implements  StorageServices{
     @Override
     public void exit(int exitSlipId,int generalId, int quantity) {
         Exit exit = new Exit(exitSlipId, generalId, quantity);
-        productList = productList.stream()
-                .sorted((Comparator.comparing(Product::getCategory)))
-                .collect(Collectors.toList());
-        int i=0;
-        for (Spot spot : spotList) {
 
+        int i = 0;
+        if (productList.get(generalId).getProductCategory().equals(ProductCategory.LIFO)) {
+            productList = productList.stream()
+                    .sorted((Comparator.comparing(Product::getCategory)))
+                    .collect(Collectors.toList());
+
+            for (Spot spot : spotList) {
+                while (quantity>=0) {
+                    if (productList.get(i).getCategory() == generalId) {
+                    spot.setProductId(0);
+                    //+ lista gia ektypwsh
+                    productList.remove(i);
+                    quantity--;
+                } else {
+                    i++;
+                }
+
+                }
+
+
+            }
+        } else {
+            productList = productList.stream()
+                    .sorted((Comparator.comparing(Product::getCategory)).reversed())
+                    .collect(Collectors.toList());
+            for (Spot spot : spotList) {
+                while (quantity>=0) {
                     if (productList.get(i).getCategory() == generalId) {
                         spot.setProductId(0);
                         //+ lista gia ektypwsh
                         productList.remove(i);
-
-                    }else {
+                        quantity--;
+                    } else {
                         i++;
                     }
+                }
 
-
+            }
         }
     }
+
 
     @Override
     public StoreKeeper searchStorekeeper(int productId) {

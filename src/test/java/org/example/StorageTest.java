@@ -2,8 +2,6 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 class StorageTest {
 
     Storage storage = new Storage();
@@ -25,16 +23,16 @@ class StorageTest {
         EntrySlip slip = new EntrySlip();
         slip.setSlipId(1);
 
-        slip.addProduct(0,1,ProductCategory.FIFO,"ena");
-        slip.addProduct(1,1,ProductCategory.FIFO,"ena");
-        slip.addProduct(2,1,ProductCategory.FIFO,"ena");
-        slip.addProduct(3,2,ProductCategory.FIFO,"ena");
-        slip.addProduct(4,2,ProductCategory.FIFO,"ena");
+        slip.addProduct(0,0,ProductCategory.FIFO,"ena");
+        slip.addProduct(1,0,ProductCategory.FIFO,"duo");
+        slip.addProduct(2,0,ProductCategory.FIFO,"tria");
+        slip.addProduct(3,1,ProductCategory.LIFO,"tessera");
+        slip.addProduct(4,1,ProductCategory.LIFO,"pente");
 
         storage.entrySlip(slip,1);
         storage.assign(0);
 
-        storage.exit(1,1,3);
+        storage.exit(1,1,0);
 
     }
 
