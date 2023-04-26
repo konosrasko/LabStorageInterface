@@ -83,7 +83,7 @@ public class Storage implements  StorageServices{
     @Override
     public void entrySlip(EntrySlip slip, int storekeeperId) {
         entrySlips.add(slip);
-        storeKeeperList.get(storekeeperId).getEntrySlipList().add(slip);
+        storeKeeperList.get(storekeeperId).addSlip(slip);
     }
 
 
