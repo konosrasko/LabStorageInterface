@@ -36,4 +36,9 @@ public class StoreKeeper {
     public int getKeeperId() {
         return keeperId;
     }
+
+
+    public void setEntrySlipList(List<EntrySlip> entrySlipList) {
+        this.entrySlipList = entrySlipList;
+    }
 }

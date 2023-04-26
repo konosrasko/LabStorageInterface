@@ -2,17 +2,18 @@ package org.example;
 import java.util.List;
 
 
-public class Search {
+public class Search  {
 
 
-    public Search(){}
+    public Search() {
+    }
 
-    public String searchOfProduct(int ProductCode,List<StoreKeeper> storeKeepersList, List<Slip> slipList){
+    public String searchOfProduct(int ProductCode, List<StoreKeeper> storeKeepersList, List<EntrySlip> entrySlipList) {
         String searchOfProductResult = "";
-        int i =0;
-        for(StoreKeeper storeKeeper : storeKeepersList){
-            for (Slip slip : slipList){
-                if (slip.getProductList().get(i).getProductId()== ProductCode){
+        int i = 0;
+        for (StoreKeeper storeKeeper : storeKeepersList) {
+            for (EntrySlip entrySlip : entrySlipList) {
+                if (entrySlip.getProductList().get(i).getProductId() == ProductCode) {
                     searchOfProductResult = storeKeeper.getKeeperName();
 
                     i++;
@@ -25,3 +26,4 @@ public class Search {
 
 
 }
+

@@ -1,3 +1,4 @@
+/*
 package org.example;
 import org.jetbrains.annotations.NotNull;
 import java.time.LocalTime;
@@ -11,16 +12,16 @@ public class Exit {
     private int exitSlipId;
     private String exitSlipDesc;
     private LocalTime exitSlipDate;
+    private int quantity;
     private List exitSlipList = new ArrayList();
 
 
 
     public Exit(){}
 
-    public Exit(int exitSlipId, String exitSlipDesc){
+    public Exit(int exitSlipId, int quantity){
         this.exitSlipId = exitSlipId;
-        this.exitSlipDesc = exitSlipDesc;
-        this.exitSlipDate = LocalTime.now();
+        this.quantity = quantity;
     }
 
     public List exitSlip(int pid, @NotNull List<Spot> spotList, @NotNull List<Product> productList){
@@ -73,3 +74,4 @@ public class Exit {
 
 
 }
+*/

@@ -17,7 +17,6 @@ public class Product extends Slip {
         this.productCategory = productCategory;
         this.desc = desc;
 
-        this.productDate = getEntryDate();
     }
 
 
