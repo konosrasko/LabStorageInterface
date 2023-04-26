@@ -26,14 +26,6 @@ public class Storage implements  StorageServices{
         storeKeeperList.add(new StoreKeeper(employeeName,employeeId));
     }
 
-    public List<Spot> getSpotsList() {
-        return spotList;
-    }
-
-    public List<EntrySlip> getEntrySlips() {
-        return entrySlips;
-    }
-
     public int emptySpots(){
         int s = 0;
         for (Spot spot : spotList){
@@ -44,28 +36,8 @@ public class Storage implements  StorageServices{
         return s;
     }
 
-    public int getStorageID() {
-        return storageID;
-    }
-
     public void setStorageID(int storageID) {
         this.storageID = storageID;
-    }
-
-    public void setStorageName(String storageName) {
-        this.storageName = storageName;
-    }
-
-    public String getStorageName() {
-        return storageName;
-    }
-
-    public List<StoreKeeper> getStoreKeeperList() {
-        return storeKeeperList;
-    }
-
-    public List<Spot> getSpotList() {
-        return spotList;
     }
 
     public List<Product> getProductList() {
@@ -109,7 +81,7 @@ public class Storage implements  StorageServices{
         Exit exit = new Exit(exitSlipId, generalId, quantity);
 
         int i = 0;
-        if (productList.get(generalId).getProductCategory().equals(ProductCategory. FIFO)) {
+        if (productList.get(generalId).getProductCategory().equals(ProductCategory.FIFO)) {
             productList = productList.stream()
                     .sorted((Comparator.comparing(Product::getProductId)))
                     .collect(Collectors.toList());
@@ -118,7 +90,6 @@ public class Storage implements  StorageServices{
                 while (quantity>=0) {
                     if (productList.get(i).getGeneralId() == generalId) {
                     spot.setProductId(0);
-                    //+ lista gia ektypwsh
                     productList.remove(i);
                     quantity--;
                 } else {
