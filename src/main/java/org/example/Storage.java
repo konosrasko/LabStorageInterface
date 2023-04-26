@@ -108,7 +108,6 @@ public class Storage implements  StorageServices{
                 while (quantity>=0) {
                     if (productList.get(i).getGeneralId() == generalId) {
                         spot.setProductId(0);
-                        //+ lista gia ektypwsh
                         productList.remove(i);
                         quantity--;
                     } else {
