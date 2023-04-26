@@ -56,26 +56,26 @@ class StorageTest {
 
         EntrySlip slip = new EntrySlip();
 
-        /*slip.addProduct(1,"test1",ProductCategory.FIFO,"ena");
-        slip.addProduct(2,"test1",ProductCategory.FIFO,"ena");
-        slip.addProduct(3,"test1",ProductCategory.FIFO,"ena");
-        slip.addProduct(4,"test1",ProductCategory.FIFO,"ena");
-        slip.addProduct(5,"test1",ProductCategory.FIFO,"ena");
+        slip.addProduct(1,1,ProductCategory.FIFO,"ena");
+        slip.addProduct(2,2,ProductCategory.FIFO,"ena");
+        slip.addProduct(3,2,ProductCategory.FIFO,"ena");
+        slip.addProduct(4,1,ProductCategory.FIFO,"ena");
+        slip.addProduct(5,3,ProductCategory.FIFO,"ena");
 
 
         EntrySlip slip2 = new EntrySlip();
 
-        slip2.addProduct(1,"test1",ProductCategory.FIFO,"ena");
-        slip2.addProduct(2,"test1",ProductCategory.FIFO,"ena");
-        slip2.addProduct(3,"test1",ProductCategory.FIFO,"ena");
-        slip2.addProduct(4,"test1",ProductCategory.FIFO,"ena");
+        slip2.addProduct(1,1,ProductCategory.FIFO,"ena");
+        slip2.addProduct(2,3,ProductCategory.FIFO,"ena");
+        slip2.addProduct(3,2,ProductCategory.FIFO,"ena");
+        slip2.addProduct(4,1,ProductCategory.FIFO,"ena");
         storage.entrySlip(slip,1);
         storage.entrySlip(slip2,1);
 
 //        System.out.println(storage.getStoreKeeperList().get(1).getEntrySlipList().size());
 //        System.out.println(storage.getStoreKeeperList().get(2).getEntrySlipList().size());
 
-*/
+
     }
 }
 
