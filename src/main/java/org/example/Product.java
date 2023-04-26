@@ -1,7 +1,7 @@
 package org.example;
 import java.time.LocalTime;
 
-public class Product extends EntrySlip{
+public class Product extends Slip {
     private int productId, quantity;
     private Enum productCategory;
     private String desc, quantityMes, category;

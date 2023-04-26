@@ -8,7 +8,7 @@ public class Storage {
     private String storageName;
     private List<Spot> spotList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
-    private List<EntrySlip> entrySlips = new ArrayList<>();
+    private List<Slip> slips = new ArrayList<>();
 
 
     public void Storage(int storageID, String storageName){
@@ -28,8 +28,8 @@ public class Storage {
         return spotList;
     }
 
-    public List<EntrySlip> getEntrySlips() {
-        return entrySlips;
+    public List<Slip> getEntrySlips() {
+        return slips;
     }
 
     public int emptySpots(){

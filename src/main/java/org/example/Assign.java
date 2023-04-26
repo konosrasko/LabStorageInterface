@@ -9,7 +9,7 @@ public class Assign {
     }
 
 
-    public void setProductList(EntrySlip slip) {
+    public void setProductList(Slip slip) {
         for (Product product : slip.getProductList() ) {
                 products.add(product);
         }

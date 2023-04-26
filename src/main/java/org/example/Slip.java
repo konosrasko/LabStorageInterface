@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class EntrySlip {
+public class Slip {
 
     private String productGeneralType;
     private int entrySlipCode;
@@ -17,14 +17,14 @@ public class EntrySlip {
     private LocalTime entryDate;
     private List<Product> productList = new ArrayList<>();
 
-    public EntrySlip(int entrySlipCode,String productGeneralType,String entrySlipDesc){
+    public Slip(int entrySlipCode, String productGeneralType, String entrySlipDesc){
         this.entrySlipCode=entrySlipCode;
         this.productGeneralType=productGeneralType;
         this.entrySlipDesc=entrySlipDesc;
         this.entryDate = LocalTime.now();
     }
 
-    public EntrySlip(){
+    public Slip(){
         this.entryDate = LocalTime.now();
     }
 
