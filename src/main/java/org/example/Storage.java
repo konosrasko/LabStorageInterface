@@ -1,7 +1,5 @@
 package org.example;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -84,6 +82,7 @@ public class Storage implements  StorageServices{
     public void entrySlip(EntrySlip slip, int storekeeperId) {
         entrySlips.add(slip);
         storeKeeperList.get(storekeeperId).addSlip(slip);
+        productList.addAll(slip.getProductList());
     }
 
 
@@ -102,24 +101,23 @@ public class Storage implements  StorageServices{
 
     @Override
     public void exit(int exitSlipId,int generalId, int quantity) {
-        Exit exit = new Exit(exitSlipId,generalId,quantity);
-        List<Product> srtd = productList.stream()
-                .sorted(Comparator.comparing(Product::getProductDate))
-                .toList();
-        for (Spot spot : spotList){
-            while(quantity>0){
+        Exit exit = new Exit(exitSlipId, generalId, quantity);
+        productList = productList.stream()
+                .sorted((Comparator.comparing(Product::getCategory)))
+                .collect(Collectors.toList());
+        int i=0;
+        for (Spot spot : spotList) {
 
-                for (Product product : srtd ){
-                    if (product.getProductGeneralType() == generalId){
-                    spot.setProductId(0);
-                    //+ lista gia ektypwsh
-                    srtd.remove(product);
-                    quantity--;
-                    break;
+                    if (productList.get(i).getCategory() == generalId) {
+                        spot.setProductId(0);
+                        //+ lista gia ektypwsh
+                        productList.remove(i);
+
+                    }else {
+                        i++;
                     }
-                }
-                break;
-            }
+
+
         }
     }
 
