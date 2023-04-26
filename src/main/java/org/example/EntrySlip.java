@@ -44,4 +44,12 @@ public class EntrySlip{
     public int getProductGeneralType() {
         return productGeneralType;
     }
+
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
+    }
 }

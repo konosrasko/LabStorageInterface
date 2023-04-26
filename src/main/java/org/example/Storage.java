@@ -103,9 +103,22 @@ public class Storage implements  StorageServices{
     @Override
     public void exit(int exitSlipId,int generalId, int quantity) {
         Exit exit = new Exit(exitSlipId,generalId,quantity);
-        List<Spot> srtd = spotList.stream()
-                .sorted(Comparator.comparing(Spot::getProductId))
+        List<Product> srtd = productList.stream()
+                .sorted(Comparator.comparing(Product::getProductDate))
                 .toList();
+        for (Spot spot : spotList){
+            while(quantity>0){
+
+                for (Product product : srtd ){
+                    if (product.getProductGeneralType() == generalId){
+                    spot.setProductId(0);
+                    srtd.remove(product);
+                    quantity--;
+                    break;
+                    }
+                }
+            }
+        }
     }
 
     @Override
