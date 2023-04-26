@@ -1,24 +1,27 @@
 package org.example;
 
 
-
-
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class EntrySlip extends Slip{
 
-    private String productGeneralType;
+    private int productGeneralType;
     private String entrySlipDesc;
+    private int slipId;
+    private Enum type;
     private List<Product> productList = new ArrayList<>();
 
-    public EntrySlip(String productGeneralType, String entrySlipDesc){
-        super();
+
+    public EntrySlip(){
+
+    }
+    public EntrySlip(int slipId,Enum type,int productGeneralType, String desc){
+        this.slipId = slipId;
+        this.type = type;
         this.productGeneralType = productGeneralType;
-        this.entrySlipDesc = entrySlipDesc;
+        this.entrySlipDesc = desc;
     }
 
     public void addProduct(int productId,String category, Enum type, String desc){
@@ -29,7 +32,7 @@ public class EntrySlip extends Slip{
         return productList;
     }
 
-    public String getProductGeneralType() {
+    public int getProductGeneralType() {
         return productGeneralType;
     }
 
@@ -41,10 +44,10 @@ public class EntrySlip extends Slip{
 
 
 
-    public List print() {
+   /* public List print() {
         List<Product> pr = productList.stream()
                 .sorted(Comparator.comparing(Product::getCategory))
                 .collect(Collectors.toList());
         return pr;
-    }
+    }*/
 }

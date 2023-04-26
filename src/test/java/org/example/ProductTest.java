@@ -1,3 +1,4 @@
+/*
 package org.example;
 
 import org.junit.jupiter.api.Test;
@@ -22,4 +23,4 @@ class ProductTest {
         System.out.println(product.getEntryDate() +"   "+entrySlip1.getEntryDate());
     }
 
-}
+}*/

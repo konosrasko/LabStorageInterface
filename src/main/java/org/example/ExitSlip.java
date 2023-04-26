@@ -1,3 +1,4 @@
+/*
 package org.example;
 
 import org.jetbrains.annotations.NotNull;
@@ -37,3 +38,4 @@ public class ExitSlip extends Slip {
 
 
 }
+*/

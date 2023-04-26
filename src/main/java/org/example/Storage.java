@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Storage {
+public class Storage implements  StorageServices{
     private int storageID;
     private String storageName;
     private List<Spot> spotList = new ArrayList<>();
@@ -62,4 +62,66 @@ public class Storage {
         return storeKeeperList;
     }
 
+
+
+
+    @Override
+    public Storage findStorage(int id) {
+        return null;
+    }
+
+    @Override
+    public Spot findSpot(int productId) {
+        int spotId = spotList.get(productId).getSpotID();
+        return spotList.get(spotId);
+    }
+
+    @Override
+    public void entrySlip(EntrySlip slip, int storekeeperId) {
+        entrySlips.add(slip);
+        storeKeeperList.get(storekeeperId).getEntrySlipList().add(slip);
+        /*for (int i = 0; i <= storeKeeperList.size(); i++) {
+            if (storeKeeperList.get(i).getKeeperId()==storekeeperId){
+
+            }
+        }*/
+    }
+
+
+    @Override
+    public void assign(int slipId) {
+        for (Product product : entrySlips.get(slipId).getProductList() ){
+            for (Spot spot : spotList){
+                if (spot.getProductId() == 0 ){
+                    spot.setProductId(product.getProductId());
+                    break;
+                }
+            }
+        }
+        //clear
+    }
+
+    /*@Override
+    public Exit exit(int generalId, int quantity) {
+        Exit exit = new Exit(generalId,quantity);
+        exit.
+        return null;
+    }*/
+
+    @Override
+    public StoreKeeper searchStorekeeper(int productId) {
+        int keeperId = storeKeeperList.get(productId).getKeeperId();
+        return storeKeeperList.get(keeperId);
+    }
+
+    @Override
+    public Spot searchSpot(int productId) {
+        for (Spot spot : spotList){
+            if (spot.getProductId() == productId){
+                int spotId = spot.getSpotID();
+                return spotList.get(spotId);
+            }
+        }
+        return null;
+    }
 }

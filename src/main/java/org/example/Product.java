@@ -17,7 +17,6 @@ public class Product extends EntrySlip{
         this.productCategory = productCategory;
         this.desc = desc;
 
-        this.productDate = getEntryDate();
     }
 
 

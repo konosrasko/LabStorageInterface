@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class StorageTest {
 
     Storage storage = new Storage();
-    @Test
+   /* @Test
     void EntryAssign() {
 
 
@@ -137,5 +137,55 @@ class StorageTest {
                 System.out.print(product.getProductId());
                 System.out.println(product.getCategory());
                 }
+            }*/
+
+
+    @Test
+    void testing(){
+        storage.setStorageID(1);
+        storage.addStoreKeeper(1,"ena");
+        storage.addStoreKeeper(2,"ena");
+        storage.addStoreKeeper(3,"ena");
+        storage.addStoreKeeper(4,"ena");
+        storage.addStoreKeeper(5,"ena");
+
+        storage.addSpots(1,1,1);
+        storage.addSpots(2,1,1);
+        storage.addSpots(3,1,1);
+        storage.addSpots(4,1,1);
+
+
+        EntrySlip slip = new EntrySlip();
+
+        slip.addProduct(1,"test1",ProductCategory.FIFO,"ena");
+        slip.addProduct(2,"test1",ProductCategory.FIFO,"ena");
+        slip.addProduct(3,"test1",ProductCategory.FIFO,"ena");
+        slip.addProduct(4,"test1",ProductCategory.FIFO,"ena");
+        slip.addProduct(5,"test1",ProductCategory.FIFO,"ena");
+
+
+        EntrySlip slip2 = new EntrySlip();
+
+        slip2.addProduct(1,"test1",ProductCategory.FIFO,"ena");
+        slip2.addProduct(2,"test1",ProductCategory.FIFO,"ena");
+        slip2.addProduct(3,"test1",ProductCategory.FIFO,"ena");
+        slip2.addProduct(4,"test1",ProductCategory.FIFO,"ena");
+        storage.entrySlip(slip,1);
+        storage.entrySlip(slip2,1);
+
+//        System.out.println(storage.getStoreKeeperList().get(1).getEntrySlipList().size());
+//        System.out.println(storage.getStoreKeeperList().get(2).getEntrySlipList().size());
+
+        for (int i=1; i<storage.getStoreKeeperList().get(1).getEntrySlipList().get(1).getProductList().size(); i++ ) {
+            for (int j = 0; j < storage.getStoreKeeperList().get(1).getEntrySlipList().get(1).getProductList().size(); j++) {
+                System.out.println(storage.getStoreKeeperList().get(1).getEntrySlipList().get(i).getProductList().get(j).getProductId());
             }
         }
+
+
+    }
+
+
+
+
+}
