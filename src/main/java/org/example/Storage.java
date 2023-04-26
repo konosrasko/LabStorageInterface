@@ -1,6 +1,8 @@
 package org.example;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Storage implements  StorageServices{
@@ -9,6 +11,8 @@ public class Storage implements  StorageServices{
     private List<Spot> spotList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
     private List<EntrySlip> entrySlips = new ArrayList<>();
+
+    private List<Product> productList = new ArrayList<>();
 
 
     public void Storage(int storageID, String storageName){
@@ -80,11 +84,6 @@ public class Storage implements  StorageServices{
     public void entrySlip(EntrySlip slip, int storekeeperId) {
         entrySlips.add(slip);
         storeKeeperList.get(storekeeperId).getEntrySlipList().add(slip);
-        /*for (int i = 0; i <= storeKeeperList.size(); i++) {
-            if (storeKeeperList.get(i).getKeeperId()==storekeeperId){
-
-            }
-        }*/
     }
 
 
@@ -101,12 +100,13 @@ public class Storage implements  StorageServices{
         //clear
     }
 
-    /*@Override
-    public Exit exit(int generalId, int quantity) {
-        Exit exit = new Exit(generalId,quantity);
-        exit.
-        return null;
-    }*/
+    @Override
+    public void exit(int exitSlipId,int generalId, int quantity) {
+        Exit exit = new Exit(exitSlipId,generalId,quantity);
+        List<Spot> srtd = spotList.stream()
+                .sorted(Comparator.comparing(Spot::getProductId))
+                .toList();
+    }
 
     @Override
     public StoreKeeper searchStorekeeper(int productId) {

@@ -13,7 +13,7 @@ public interface StorageServices {
 
     public void assign(int id);
 
-   // public Exit exit(int generalId, int quantity);
+    public void exit(int exitSlipId, int generalId, int quantity);
 
     public StoreKeeper searchStorekeeper(int productId);
 
