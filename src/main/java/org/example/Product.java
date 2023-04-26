@@ -5,16 +5,16 @@ public class Product extends EntrySlip{
     private int productId;
     private Enum productCategory;
     private String desc, quantityMes;
-    private int category;
+    private int generalId;
     private LocalDate productDate;
 
 
 
     public Product(){}
 
-    public Product(int productId, int category, Enum productCategory, String desc){
+    public Product(int productId, int generalId, Enum productCategory, String desc){
         this.productId = productId;
-        this.category = category;
+        this.generalId = generalId;
         this.productCategory = productCategory;
         this.desc = desc;
         this.productDate = LocalDate.now();
@@ -27,8 +27,8 @@ public class Product extends EntrySlip{
     public int getProductId() {
         return productId;
     }
-    public int getCategory() {
-        return category;
+    public int getGeneralId() {
+        return generalId;
     }
     public Enum getProductCategory() {
         return productCategory;

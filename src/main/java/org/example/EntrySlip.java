@@ -28,8 +28,8 @@ public class EntrySlip{
         this.localDate = LocalDate.now();
     }
 
-    public void addProduct(int productId,int category, Enum type, String desc){
-        productList.add(new Product(productId,category,type,desc));
+    public void addProduct(int productId,int generalId, Enum type, String desc){
+        productList.add(new Product(productId,generalId,type,desc));
     }
 
     public List<Product> getProductList() {

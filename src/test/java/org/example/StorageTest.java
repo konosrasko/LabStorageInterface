@@ -1,5 +1,6 @@
 package org.example;
 
+import static org.junit.Assert.*;
 import org.junit.jupiter.api.Test;
 
 class StorageTest {
@@ -23,16 +24,22 @@ class StorageTest {
         EntrySlip slip = new EntrySlip();
         slip.setSlipId(1);
 
-        slip.addProduct(0,0,ProductCategory.FIFO,"ena");
-        slip.addProduct(1,0,ProductCategory.FIFO,"duo");
-        slip.addProduct(2,0,ProductCategory.FIFO,"tria");
-        slip.addProduct(3,1,ProductCategory.LIFO,"tessera");
-        slip.addProduct(4,1,ProductCategory.LIFO,"pente");
+        slip.addProduct(0,0,ProductCategory.LIFO,"ena");
+        slip.addProduct(1,0,ProductCategory.LIFO,"duo");
+        slip.addProduct(2,0,ProductCategory.LIFO,"tria");
+        slip.addProduct(3,1,ProductCategory.FIFO,"tessera");
+        slip.addProduct(4,1,ProductCategory.FIFO,"pente");
 
         storage.entrySlip(slip,1);
         storage.assign(0);
 
+
         storage.exit(1,1,0);
+        assertEquals(4,storage.getProductList().size());
+
+        storage.exit(1,0,0);
+        assertEquals(3,storage.getProductList().size());
+
 
     }
 
@@ -69,8 +76,6 @@ class StorageTest {
         storage.entrySlip(slip,1);
         storage.entrySlip(slip2,1);
 
-//        System.out.println(storage.getStoreKeeperList().get(1).getEntrySlipList().size());
-//        System.out.println(storage.getStoreKeeperList().get(2).getEntrySlipList().size());
 
 
     }

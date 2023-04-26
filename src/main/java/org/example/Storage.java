@@ -64,8 +64,13 @@ public class Storage implements  StorageServices{
         return storeKeeperList;
     }
 
+    public List<Spot> getSpotList() {
+        return spotList;
+    }
 
-
+    public List<Product> getProductList() {
+        return productList;
+    }
 
     @Override
     public Storage findStorage(int id) {
@@ -104,14 +109,14 @@ public class Storage implements  StorageServices{
         Exit exit = new Exit(exitSlipId, generalId, quantity);
 
         int i = 0;
-        if (productList.get(generalId).getProductCategory().equals(ProductCategory.LIFO)) {
+        if (productList.get(generalId).getProductCategory().equals(ProductCategory. FIFO)) {
             productList = productList.stream()
-                    .sorted((Comparator.comparing(Product::getCategory)))
+                    .sorted((Comparator.comparing(Product::getProductId)))
                     .collect(Collectors.toList());
 
             for (Spot spot : spotList) {
                 while (quantity>=0) {
-                    if (productList.get(i).getCategory() == generalId) {
+                    if (productList.get(i).getGeneralId() == generalId) {
                     spot.setProductId(0);
                     //+ lista gia ektypwsh
                     productList.remove(i);
@@ -126,11 +131,11 @@ public class Storage implements  StorageServices{
             }
         } else {
             productList = productList.stream()
-                    .sorted((Comparator.comparing(Product::getCategory)).reversed())
+                    .sorted((Comparator.comparing(Product::getProductId)).reversed())
                     .collect(Collectors.toList());
             for (Spot spot : spotList) {
                 while (quantity>=0) {
-                    if (productList.get(i).getCategory() == generalId) {
+                    if (productList.get(i).getGeneralId() == generalId) {
                         spot.setProductId(0);
                         //+ lista gia ektypwsh
                         productList.remove(i);
