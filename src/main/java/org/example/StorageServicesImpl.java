@@ -1,5 +1,7 @@
 package org.example;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -12,14 +14,14 @@ public class StorageServicesImpl implements StorageServices{
     }
 
     @Override
-    public Spot findSpot(Storage storage, int productId) {
+    public Spot findSpot(@NotNull Storage storage, int productId) {
 
         int spotId = storage.getSpotList().get(productId).getSpotID();
         return storage.getSpotList().get(spotId);
     }
 
     @Override
-    public void entrySlip(Storage storage,EntrySlip slip, int storekeeperId) {
+    public void entrySlip(@NotNull Storage storage, EntrySlip slip, int storekeeperId) {
         storage.getEntrySlips().add(slip);
         storage.getStoreKeeperList().get(storekeeperId).addSlip(slip);
         storage.getProductList().addAll(slip.getProductList());
@@ -27,7 +29,7 @@ public class StorageServicesImpl implements StorageServices{
 
 
     @Override
-    public void assign(Storage storage,int slipId) {
+    public void assign(@NotNull Storage storage, int slipId) {
         for (Product product : storage.getEntrySlips().get(slipId).getProductList() ){
             for (Spot spot : storage.getSpotList()){
                 if (spot.getProductId() == 0 ){
@@ -40,7 +42,7 @@ public class StorageServicesImpl implements StorageServices{
     }
 
     @Override
-    public List exit(Storage storage,int exitSlipId, int generalId, int quantity) {
+    public List exit(@NotNull Storage storage, int exitSlipId, int generalId, int quantity) {
         Exit exit = new Exit(exitSlipId, generalId, quantity);
 
         int i = 0;
@@ -82,7 +84,7 @@ public class StorageServicesImpl implements StorageServices{
     }
 
     @Override
-    public StoreKeeper searchStorekeeper(Storage storage,int productId) {
+    public StoreKeeper searchStorekeeper(@NotNull Storage storage, int productId) {
         int keeperId = storage.getStoreKeeperList().get(productId).getKeeperId();
         return storage.getStoreKeeperList().get(keeperId);
     }
