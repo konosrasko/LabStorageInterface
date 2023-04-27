@@ -1,12 +1,13 @@
 package org.example;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class StorageServicesImpl implements StorageServices{
     @Override
-    public Storage findStorage(int id) {
+    public Storage findStorage(Storage storage,int storageId) {
         return null;
     }
 
@@ -19,16 +20,16 @@ public class StorageServicesImpl implements StorageServices{
 
     @Override
     public void entrySlip(Storage storage,EntrySlip slip, int storekeeperId) {
-        entrySlips.add(slip);
-        storeKeeperList.get(storekeeperId).addSlip(slip);
-        productList.addAll(slip.getProductList());
+        storage.getEntrySlips().add(slip);
+        storage.getStoreKeeperList().get(storekeeperId).addSlip(slip);
+        storage.getProductList().addAll(slip.getProductList());
     }
 
 
     @Override
     public void assign(Storage storage,int slipId) {
-        for (Product product : entrySlips.get(slipId).getProductList() ){
-            for (Spot spot : spotList){
+        for (Product product : storage.getEntrySlips().get(slipId).getProductList() ){
+            for (Spot spot : storage.getSpotList()){
                 if (spot.getProductId() == 0 ){
                     spot.setProductId(product.getProductId());
                     break;
@@ -44,16 +45,14 @@ public class StorageServicesImpl implements StorageServices{
 
         int i = 0;
         if (storage.getStoreKeeperList().get(generalId).equals(ProductCategory.FIFO)) {
-            storageproductList = storage.getProductList().stream()
-                    .sorted((Comparator.comparing(Product::getProductId)))
-                    .collect(Collectors.toList());
+            Collections.sort(storage.getProductList(),Comparator.comparing(Product::getProductId));
 
-            for (Spot spot : spotList) {
+            for (Spot spot : storage.getSpotList()) {
                 while (quantity>=0) {
-                    if (productList.get(i).getGeneralId() == generalId) {
-                        exit.getExitSlipList().add(productList.get(i).getProductId());
+                    if (storage.getProductList().get(i).getGeneralId() == generalId) {
+                        exit.getExitSlipList().add(storage.getProductList().get(i).getProductId());
                         spot.setProductId(0);
-                        productList.remove(i);
+                        storage.getProductList().remove(i);
                         quantity--;
                     } else {
                         i++;
@@ -63,15 +62,13 @@ public class StorageServicesImpl implements StorageServices{
 
             }
         } else {
-            productList = productList.stream()
-                    .sorted((Comparator.comparing(Product::getProductId)).reversed())
-                    .collect(Collectors.toList());
-            for (Spot spot : spotList) {
+            Collections.sort(storage.getProductList(),Comparator.comparing(Product::getProductId).reversed());
+            for (Spot spot : storage.getSpotList()) {
                 while (quantity>=0) {
-                    if (productList.get(i).getGeneralId() == generalId) {
-                        exit.getExitSlipList().add(productList.get(i).getProductId());
+                    if (storage.getProductList().get(i).getGeneralId() == generalId) {
+                        exit.getExitSlipList().add(storage.getProductList().get(i).getProductId());
                         spot.setProductId(0);
-                        productList.remove(i);
+                        storage.getProductList().remove(i);
                         quantity--;
                     } else {
                         i++;
@@ -80,24 +77,15 @@ public class StorageServicesImpl implements StorageServices{
 
             }
         }
+
         return exit.getExitSlipList();
     }
 
-
     @Override
     public StoreKeeper searchStorekeeper(Storage storage,int productId) {
-        int keeperId = storeKeeperList.get(productId).getKeeperId();
-        return storeKeeperList.get(keeperId);
+        int keeperId = storage.getStoreKeeperList().get(productId).getKeeperId();
+        return storage.getStoreKeeperList().get(keeperId);
     }
 
-    @Override
-    public Spot searchSpot(Storage storage,int productId) {
-        for (Spot spot : spotList){
-            if (spot.getProductId() == productId){
-                int spotId = spot.getSpotID();
-                return spotList.get(spotId);
-            }
-        }
-        return null;
-    }
+
 }

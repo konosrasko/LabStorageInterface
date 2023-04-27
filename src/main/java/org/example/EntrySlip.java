@@ -56,4 +56,28 @@ public class EntrySlip{
     public void setSlipId(int slipId) {
         this.slipId = slipId;
     }
+
+    public void setGeneralId(int generalId) {
+        this.generalId = generalId;
+    }
+
+    public String getEntrySlipDesc() {
+        return entrySlipDesc;
+    }
+
+    public void setEntrySlipDesc(String entrySlipDesc) {
+        this.entrySlipDesc = entrySlipDesc;
+    }
+
+    public Enum getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(Enum productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
 }

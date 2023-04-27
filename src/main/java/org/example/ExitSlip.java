@@ -15,4 +15,27 @@ public class ExitSlip {
         this.exitSlipDesc = exitSlipDesc;
     }
 
+    public String getExitSlipDesc() {
+        return exitSlipDesc;
+    }
+
+    public void setExitSlipDesc(String exitSlipDesc) {
+        this.exitSlipDesc = exitSlipDesc;
+    }
+
+    public int getExitSlipId() {
+        return exitSlipId;
+    }
+
+    public void setExitSlipId(int exitSlipId) {
+        this.exitSlipId = exitSlipId;
+    }
+
+    public List<Product> getExitSlipList() {
+        return exitSlipList;
+    }
+
+    public void setExitSlipList(List<Product> exitSlipList) {
+        this.exitSlipList = exitSlipList;
+    }
 }

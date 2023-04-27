@@ -33,5 +33,43 @@ public class Exit {
         return exitSlipDate;
     }
 
+    public int getExitSlipId() {
+        return exitSlipId;
+    }
 
+    public void setExitSlipId(int exitSlipId) {
+        this.exitSlipId = exitSlipId;
+    }
+
+    public int getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(int productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public String getExitSlipDesc() {
+        return exitSlipDesc;
+    }
+
+    public void setExitSlipDesc(String exitSlipDesc) {
+        this.exitSlipDesc = exitSlipDesc;
+    }
+
+    public void setExitSlipDate(LocalTime exitSlipDate) {
+        this.exitSlipDate = exitSlipDate;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setExitSlipList(List<Integer> exitSlipList) {
+        this.exitSlipList = exitSlipList;
+    }
 }

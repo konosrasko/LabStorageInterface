@@ -37,4 +37,15 @@ public class Spot {
         return productId;
     }
 
+    public void setSpotID(int spotID) {
+        this.spotID = spotID;
+    }
+
+    public void setCorridor(int corridor) {
+        this.corridor = corridor;
+    }
+
+    public void setShelf(int shelf) {
+        this.shelf = shelf;
+    }
 }

@@ -36,4 +36,16 @@ public class StoreKeeper {
     public int getKeeperId() {
         return keeperId;
     }
+
+    public void setKeeperName(String keeperName) {
+        this.keeperName = keeperName;
+    }
+
+    public void setKeeperId(int keeperId) {
+        this.keeperId = keeperId;
+    }
+
+    public void setEntrySlipList(List<EntrySlip> entrySlipList) {
+        this.entrySlipList = entrySlipList;
+    }
 }
