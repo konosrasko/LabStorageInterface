@@ -10,10 +10,8 @@ public class StorageServicesImpl implements StorageServices{
 
 
     @Override
-    public Spot findSpot(@NotNull Storage storage, int productId) {
-
-        int spotId = storage.getSpotList().get(productId).getSpotID();
-        return storage.getSpotList().get(spotId);
+    public int findSpot(@NotNull Storage storage, int productId) {
+        return storage.getSpotList().get(productId).getSpotID();
     }
 
     @Override
