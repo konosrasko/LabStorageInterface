@@ -14,7 +14,7 @@ public class Exit {
     private String exitSlipDesc;
     private LocalTime exitSlipDate;
     private int quantity;
-    private List exitSlipList = new ArrayList();
+    private List<Integer> exitSlipList = new ArrayList();
 
 
 
@@ -25,7 +25,7 @@ public class Exit {
         this.productCategory = productCategory;
         this.quantity = quantity;
     }
-    public List<Exit> getExitSlipList() {
+    public List<Integer> getExitSlipList() {
         return exitSlipList;
     }
 

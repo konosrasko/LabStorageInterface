@@ -81,9 +81,10 @@ public class Storage implements  StorageServices{
             for (Spot spot : spotList) {
                 while (quantity>=0) {
                     if (productList.get(i).getGeneralId() == generalId) {
-                    spot.setProductId(0);
-                    productList.remove(i);
-                    quantity--;
+                        exit.getExitSlipList().add(productList.get(i).getProductId());
+                        spot.setProductId(0);
+                        productList.remove(i);
+                        quantity--;
                 } else {
                     i++;
                 }
@@ -98,6 +99,7 @@ public class Storage implements  StorageServices{
             for (Spot spot : spotList) {
                 while (quantity>=0) {
                     if (productList.get(i).getGeneralId() == generalId) {
+                        exit.getExitSlipList().add(productList.get(i).getProductId());
                         spot.setProductId(0);
                         productList.remove(i);
                         quantity--;
