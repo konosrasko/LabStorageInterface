@@ -1,6 +1,5 @@
 package org.example;
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class Storage {
@@ -8,8 +7,7 @@ public class Storage {
     private String storageName;
     private List<Spot> spotList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
-    private List<EntrySlip> entrySlips = new ArrayList<>();
-    private List<Product> productList = new ArrayList<>();
+    private List<Product> sortedProductList = new ArrayList<>();
 
     public Storage(){}
 
@@ -31,8 +29,8 @@ public class Storage {
         this.storageID = storageID;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public List<Product> getSortedProductList() {
+        return sortedProductList;
     }
 
     public int getStorageID() {
@@ -51,7 +49,4 @@ public class Storage {
         return storeKeeperList;
     }
 
-    public List<EntrySlip> getEntrySlips() {
-        return entrySlips;
-    }
 }

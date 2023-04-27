@@ -11,7 +11,7 @@ public interface StorageServices {
 
     void entrySlip(Storage storage,EntrySlip slip , int storekeeperId);
 
-    public void assign(Storage storage,int slipId);
+    public void assign(Storage storage,int slipId, int storeKeeperId);
 
     public List exit(Storage storage,int exitSlipId, int generalId, int quantity);
 
