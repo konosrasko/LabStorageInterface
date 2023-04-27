@@ -69,7 +69,7 @@ public class Storage implements  StorageServices{
     }
 
     @Override
-    public void exit(int exitSlipId,int generalId, int quantity) {
+    public List exit(int exitSlipId, int generalId, int quantity) {
         Exit exit = new Exit(exitSlipId, generalId, quantity);
 
         int i = 0;
@@ -110,6 +110,7 @@ public class Storage implements  StorageServices{
 
             }
         }
+        return exit.getExitSlipList();
     }
 
 

@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.Storage;
+import java.util.List;
 
 public interface StorageServices {
 
@@ -13,7 +13,7 @@ public interface StorageServices {
 
     public void assign(int id);
 
-    public void exit(int exitSlipId, int generalId, int quantity);
+    public List exit(int exitSlipId, int generalId, int quantity);
 
     public StoreKeeper searchStorekeeper(int productId);
 
