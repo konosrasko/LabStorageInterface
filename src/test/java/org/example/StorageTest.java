@@ -32,14 +32,14 @@ class StorageTest {
         slip.addProduct(4,1,ProductCategory.FIFO,"pente");
 
         storageServices.entrySlip(storage,slip,1);
-        storageServices.assign(storage,0);
+        storageServices.assign(storage,0,1);
 
 
         storageServices.exit(storage,1,1,0);
-        assertEquals(4,storage.getProductList().size());
+        assertEquals(4,storage.getSortedProductList().size());
 
         storageServices.exit(storage,1,0,0);
-        assertEquals(3,storage.getProductList().size());
+        assertEquals(3,storage.getSortedProductList().size());
 
 
     }
