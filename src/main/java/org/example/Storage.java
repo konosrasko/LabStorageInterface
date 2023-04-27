@@ -12,8 +12,10 @@ public class Storage implements  StorageServices{
 
     private List<Product> productList = new ArrayList<>();
 
+    public Storage(){}
 
-    public void Storage(int storageID, String storageName){
+
+    public Storage(int storageID, String storageName){
         this.storageID=storageID;
         this.storageName=storageName;
     }
