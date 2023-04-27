@@ -7,9 +7,9 @@ public interface StorageServices {
     public Storage findStorage(int id);
 
 
-    public Spot findSpot(int id);
+    public Spot findSpot(Storage storage,int productId);
 
-    void entrySlip(EntrySlip slip , int storekeeperId);
+    void entrySlip(Storage storage,EntrySlip slip , int storekeeperId);
 
     public void assign(int id);
 

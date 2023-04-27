@@ -24,6 +24,7 @@ public class Product extends EntrySlip{
     public LocalDate getProductDate() {
         return productDate;
     }
+
     public int getProductId() {
         return productId;
     }
