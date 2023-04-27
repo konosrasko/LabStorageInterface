@@ -7,10 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class StorageServicesImpl implements StorageServices{
-    @Override
-    public Storage findStorage(Storage storage,int storageId) {
-        return null;
-    }
+
 
     @Override
     public Spot findSpot(@NotNull Storage storage, int productId) {

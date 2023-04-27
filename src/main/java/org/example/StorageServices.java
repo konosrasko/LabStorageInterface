@@ -4,12 +4,9 @@ import java.util.List;
 
 public interface StorageServices {
 
-    public Storage findStorage(Storage storage,int storageId);
-
-
     public Spot findSpot(Storage storage,int productId);
 
-    void entrySlip(Storage storage,EntrySlip slip , int storekeeperId);
+    public void entrySlip(Storage storage,EntrySlip slip , int storekeeperId);
 
     public void assign(Storage storage,int slipId, int storeKeeperId);
 
