@@ -43,8 +43,8 @@ public class StorageServicesImpl implements StorageServices{
         Exit exit = new Exit(exitSlipId, generalId, quantity);
 
         int i = 0;
-        if (productList.get(generalId).getProductCategory().equals(ProductCategory.FIFO)) {
-            productList = productList.stream()
+        if (storage.getStoreKeeperList().get(generalId).equals(ProductCategory.FIFO)) {
+            storageproductList = storage.getProductList().stream()
                     .sorted((Comparator.comparing(Product::getProductId)))
                     .collect(Collectors.toList());
 
