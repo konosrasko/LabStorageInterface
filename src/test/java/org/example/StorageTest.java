@@ -1,8 +1,6 @@
 package org.example;
 
 import static org.junit.Assert.*;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class StorageTest {
@@ -10,7 +8,7 @@ class StorageTest {
     Storage storage = new Storage();
 
     @Test
-    void testingAssignExPit(){
+    void testingAssignExit(){
 
         storage.addSpots(0,1,1);
         storage.addSpots(1,1,1);
@@ -36,12 +34,12 @@ class StorageTest {
         storage.assign(0);
 
 
-
         storage.exit(1,1,0);
-        Assertions.assertEquals(4, storage.getProductList().size());
+        assertEquals(4,storage.getProductList().size());
 
         storage.exit(1,0,0);
-        Assertions.assertEquals(3, storage.getProductList().size());
+        assertEquals(3,storage.getProductList().size());
+
 
     }
 
@@ -79,12 +77,8 @@ class StorageTest {
         storage.entrySlip(slip2,1);
 
 
+
     }
 }
-
-
-
-
-
 
 
