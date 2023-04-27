@@ -111,7 +111,7 @@ class StorageTest {
         slip.addProduct(4,1,ProductCategory.FIFO,"ena");
         slip.addProduct(5,3,ProductCategory.FIFO,"ena");
 
-        assertEquals(storage.getSpotList().get(2),storageServices.findSpot(storage,1));
+        assertEquals(storage.getSpotList().get(1).getSpotID(),storageServices.findSpot(storage,1));
 
     }
 
