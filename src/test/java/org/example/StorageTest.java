@@ -85,6 +85,33 @@ class StorageTest {
 
     }
 
+    @Test
+    public void findSpotTest(){
+        storage.setStorageID(1);
+        storage.addStoreKeeper(1,"ena");
+        storage.addStoreKeeper(2,"ena");
+        storage.addStoreKeeper(3,"ena");
+        storage.addStoreKeeper(4,"ena");
+        storage.addStoreKeeper(5,"ena");
+
+        storage.addSpots(1,1,1);
+        storage.addSpots(2,1,1);
+        storage.addSpots(3,1,1);
+        storage.addSpots(4,1,1);
+
+
+        EntrySlip slip = new EntrySlip();
+
+        slip.addProduct(1,1,ProductCategory.FIFO,"ena");
+        slip.addProduct(2,2,ProductCategory.FIFO,"ena");
+        slip.addProduct(3,2,ProductCategory.FIFO,"ena");
+        slip.addProduct(4,1,ProductCategory.FIFO,"ena");
+        slip.addProduct(5,3,ProductCategory.FIFO,"ena");
+
+        assertEquals(storage.getSpotList().get(2),storageServices.findSpot(storage,1));
+
+    }
+
 
 }
 
