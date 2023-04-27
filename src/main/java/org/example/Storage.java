@@ -13,7 +13,10 @@ public class Storage implements  StorageServices{
     private List<Product> productList = new ArrayList<>();
 
 
-    public void Storage(int storageID, String storageName){
+    public Storage(){
+    }
+
+    public Storage(int storageID, String storageName){
         this.storageID=storageID;
         this.storageName=storageName;
     }
@@ -24,16 +27,6 @@ public class Storage implements  StorageServices{
 
     public void addStoreKeeper(int employeeId ,String employeeName){
         storeKeeperList.add(new StoreKeeper(employeeName,employeeId));
-    }
-
-    public int emptySpots(){
-        int s = 0;
-        for (Spot spot : spotList){
-            if (spot.getProductId()==0){
-                s +=1;
-            }
-        }
-        return s;
     }
 
     public void setStorageID(int storageID) {
@@ -73,7 +66,6 @@ public class Storage implements  StorageServices{
                 }
             }
         }
-        //clear
     }
 
     @Override
