@@ -28,16 +28,6 @@ public class Storage implements  StorageServices{
         storeKeeperList.add(new StoreKeeper(employeeName,employeeId));
     }
 
-    public int emptySpots(){
-        int s = 0;
-        for (Spot spot : spotList){
-            if (spot.getProductId()==0){
-                s +=1;
-            }
-        }
-        return s;
-    }
-
     public void setStorageID(int storageID) {
         this.storageID = storageID;
     }
@@ -99,7 +89,6 @@ public class Storage implements  StorageServices{
                 }
 
                 }
-
 
             }
         } else {
