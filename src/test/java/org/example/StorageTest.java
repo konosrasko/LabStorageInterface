@@ -37,6 +37,9 @@ class StorageTest {
         storageServices.assign(storage,0,1);
 
 
+
+        assertEquals(1,storageServices.findSpot(storage,1).getSpotID());
+
         storageServices.exit(storage,1,1,0);
         assertEquals(4,storage.getSortedProductList().size());
 
