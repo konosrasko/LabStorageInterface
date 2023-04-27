@@ -9,7 +9,6 @@ public class Storage {
     private List<Spot> spotList = new ArrayList<>();
     private List<StoreKeeper> storeKeeperList = new ArrayList<>();
     private List<EntrySlip> entrySlips = new ArrayList<>();
-
     private List<Product> productList = new ArrayList<>();
 
     public Storage(){}

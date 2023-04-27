@@ -41,4 +41,29 @@ public class Product extends EntrySlip{
         return quantityMes;
     }
 
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    @Override
+    public void setProductCategory(Enum productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setQuantityMes(String quantityMes) {
+        this.quantityMes = quantityMes;
+    }
+
+    @Override
+    public void setGeneralId(int generalId) {
+        this.generalId = generalId;
+    }
+
+    public void setProductDate(LocalDate productDate) {
+        this.productDate = productDate;
+    }
 }
