@@ -11,7 +11,6 @@ public class Storage {
 
     public Storage(){}
 
-
     public Storage(int storageID, String storageName){
         this.storageID=storageID;
         this.storageName=storageName;
@@ -39,6 +38,22 @@ public class Storage {
 
     public String getStorageName() {
         return storageName;
+    }
+
+    public void setStorageName(String storageName) {
+        this.storageName = storageName;
+    }
+
+    public void setSpotList(List<Spot> spotList) {
+        this.spotList = spotList;
+    }
+
+    public void setStoreKeeperList(List<StoreKeeper> storeKeeperList) {
+        this.storeKeeperList = storeKeeperList;
+    }
+
+    public void setSortedProductList(List<Product> sortedProductList) {
+        this.sortedProductList = sortedProductList;
     }
 
     public List<Spot> getSpotList() {

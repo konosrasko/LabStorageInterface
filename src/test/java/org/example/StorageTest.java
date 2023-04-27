@@ -10,6 +10,8 @@ class StorageTest {
 
     @Test
     void testingAssignExit(){
+        storage.setStorageID(1);
+        storage.setStorageName("Apothiki");
 
         storage.addSpots(0,1,1);
         storage.addSpots(1,1,1);
