@@ -12,9 +12,8 @@ public class Storage implements  StorageServices{
 
     private List<Product> productList = new ArrayList<>();
 
+    public Storage(){}
 
-    public Storage(){
-    }
 
     public Storage(int storageID, String storageName){
         this.storageID=storageID;
@@ -66,6 +65,7 @@ public class Storage implements  StorageServices{
                 }
             }
         }
+        //clear
     }
 
     @Override
@@ -90,7 +90,6 @@ public class Storage implements  StorageServices{
 
                 }
 
-
             }
         } else {
             productList = productList.stream()
@@ -100,7 +99,6 @@ public class Storage implements  StorageServices{
                 while (quantity>=0) {
                     if (productList.get(i).getGeneralId() == generalId) {
                         spot.setProductId(0);
-                        //+ lista gia ektypwsh
                         productList.remove(i);
                         quantity--;
                     } else {
