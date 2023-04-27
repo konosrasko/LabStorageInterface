@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 class StorageTest {
 
     Storage storage = new Storage();
+    StorageServicesImpl storageServices = new StorageServicesImpl();
 
     @Test
     void testingAssignExit(){
@@ -30,14 +31,14 @@ class StorageTest {
         slip.addProduct(3,1,ProductCategory.FIFO,"tessera");
         slip.addProduct(4,1,ProductCategory.FIFO,"pente");
 
-        storage.entrySlip(slip,1);
-        storage.assign(0);
+        storageServices.entrySlip(storage,slip,1);
+        storageServices.assign(storage,0);
 
 
-        storage.exit(1,1,0);
+        storageServices.exit(storage,1,1,0);
         assertEquals(4,storage.getProductList().size());
 
-        storage.exit(1,0,0);
+        storageServices.exit(storage,1,0,0);
         assertEquals(3,storage.getProductList().size());
 
 
@@ -73,8 +74,8 @@ class StorageTest {
         slip2.addProduct(2,3,ProductCategory.FIFO,"ena");
         slip2.addProduct(3,2,ProductCategory.FIFO,"ena");
         slip2.addProduct(4,1,ProductCategory.FIFO,"ena");
-        storage.entrySlip(slip,1);
-        storage.entrySlip(slip2,1);
+        storageServices.entrySlip(storage,slip,1);
+        storageServices.entrySlip(storage,slip2,1);
 
 
 
