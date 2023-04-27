@@ -1,12 +1,15 @@
 package org.example;
 
 import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class StorageTest {
 
     Storage storage = new Storage();
     StorageServicesImpl storageServices = new StorageServicesImpl();
+
 
     @Test
     void testingAssignExit(){
@@ -78,8 +81,9 @@ class StorageTest {
         storageServices.entrySlip(storage,slip2,1);
 
 
-
     }
+
+
 }
 
 
